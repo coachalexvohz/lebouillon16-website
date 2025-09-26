@@ -1,0 +1,338 @@
+
+"use client";
+
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { VideoHero } from '@/components/ui/video-hero';
+
+import { useLanguage } from '@/contexts/language-context';
+import { useInView } from 'react-intersection-observer';
+import { ChefHat, Heart, Sparkles, Star, ArrowRight, X } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+
+export default function HomePage() {
+  const { translations } = useLanguage();
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
+
+  // État pour la modal des images
+  const [selectedDish, setSelectedDish] = useState<any>(null);
+
+
+
+  const [philosophyRef, philosophyInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  const [signatureRef, signatureInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  // Gestion de la modal
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && selectedDish) {
+        setSelectedDish(null);
+      }
+    };
+
+    if (selectedDish) {
+      // Empêcher le scroll du body quand la modal est ouverte
+      document.body.style.overflow = 'hidden';
+      // Écouter la touche Escape
+      document.addEventListener('keydown', handleKeyDown);
+    } else {
+      // Restaurer le scroll du body
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedDish]);
+
+  const philosophyItems = [
+    {
+      icon: Heart,
+      title: translations?.home?.philosophy?.quality?.title || 'Qualité',
+      description: translations?.home?.philosophy?.quality?.description || 'Des ingrédients frais et locaux sélectionnés avec soin pour vous offrir une cuisine d\'exception.'
+    },
+    {
+      icon: Sparkles,
+      title: translations?.home?.philosophy?.atmosphere?.title || 'Ambiance',
+      description: translations?.home?.philosophy?.atmosphere?.description || 'Un cadre intimiste et convivial où chaque moment devient une célébration des sens.'
+    },
+    {
+      icon: ChefHat,
+      title: translations?.home?.philosophy?.uniqueCharm?.title || 'Charme Unique',
+      description: translations?.home?.philosophy?.uniqueCharm?.description || 'Une décoration soignée et une atmosphère authentique qui vous transportent vers l\'art de vivre.'
+    }
+  ];
+
+  const signatureDishes = [
+    {
+      name: translations?.home?.signature?.dishes?.pasta?.name || "Mix Ta Pâte et Ta Sauce",
+      description: translations?.home?.signature?.dishes?.pasta?.description || "Spécialité du mercredi - Pâtes fraîches avec sauce au choix",
+      price: "18$",
+      image: "/promo-pates-optimized.webp"
+    },
+    {
+      name: translations?.home?.signature?.dishes?.burger?.name || "Le Burger Signature",
+      description: translations?.home?.signature?.dishes?.burger?.description || "Burger gourmet maison avec pain artisanal et frites",
+      price: "22$",
+      image: "/le-burger-optimized.webp"
+    },
+    {
+      name: "Duo de Chocolat",
+      description: "Délicieux brownie au chocolat avec ganache et fruits frais",
+      price: "12$",
+      image: "/dessert-brownie-optimized.webp"
+    }
+  ];
+
+
+
+
+
+  return (
+    <>
+      {/* Hero Section with Video Background */}
+      <VideoHero 
+        src="/landing-page-new.mp4"
+        mobileImage="/fondue-hero-mobile.jpg"
+        overlay={false}
+      >
+        <div className="container mx-auto px-4 text-center relative z-10 flex items-end justify-center min-h-screen pb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-full bg-black/20 backdrop-blur-sm rounded-3xl p-8 mx-4"
+          >
+            <p className="text-xl md:text-2xl text-warm-gray-light mb-8 max-w-3xl mx-auto leading-relaxed">
+              {translations?.home?.hero?.subtitle || 'Une expérience gastronomique authentique au cœur de Lachute'}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button 
+                  asChild 
+                  size="lg"
+                  className="bg-gradient-gold-warm hover:bg-gradient-bronze-warm text-dark-primary px-8 py-4 text-lg font-semibold btn-hover-glow focus-gold"
+                >
+                  <Link href="/menu">
+                    {translations?.home?.hero?.cta1 || 'Découvrir notre menu'}
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button 
+                  asChild 
+                  variant="outline" 
+                  size="lg"
+                  className="border-2 border-gold text-gold hover:bg-gold hover:text-dark-primary px-8 py-4 text-lg font-semibold btn-hover-glow focus-gold"
+                >
+                  <Link href="/contact">
+                    {translations?.home?.hero?.cta2 || 'Nous contacter'}
+                  </Link>
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </VideoHero>
+
+      {/* Philosophy Section */}
+      <section ref={philosophyRef} className="relative philosophy-bg section-padding">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={philosophyInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16 bg-black/30 backdrop-blur-sm rounded-2xl p-8 mx-auto max-w-4xl"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
+              {translations?.home?.philosophy?.title || 'Notre Philosophie'}
+            </h2>
+            <p className="text-xl text-warm-gray-light max-w-3xl mx-auto">
+              {translations?.home?.philosophy?.subtitle || 'L\'excellence culinaire dans un cadre chaleureux'}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {philosophyItems.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={philosophyInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="bg-dark-card border border-zinc-700 rounded-lg p-8 shadow-2xl hover:shadow-2xl transition-all duration-300 card-hover backdrop-blur-sm"
+                >
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-gold-warm rounded-full mb-6 mx-auto">
+                    <Icon className="w-8 h-8 text-dark-primary" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-gold mb-4 text-center text-glow-gold">
+                    {item.title}
+                  </h3>
+                  <p className="text-warm-gray-light text-center leading-relaxed">
+                    {item.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Signature Dishes Section */}
+      <section ref={signatureRef} className="relative signature-bg section-padding">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={signatureInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16 bg-black/30 backdrop-blur-sm rounded-2xl p-8 mx-auto max-w-4xl"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
+              {translations?.home?.signature?.title || 'Nos Créations Signature'}
+            </h2>
+            <p className="text-xl text-warm-gray-light max-w-3xl mx-auto">
+              {translations?.home?.signature?.subtitle || 'Des plats uniques créés avec passion par notre chef'}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {signatureDishes.map((dish, index) => (
+              <motion.div
+                key={dish.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={signatureInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                onClick={() => setSelectedDish(dish)}
+                className="bg-dark-card/95 backdrop-blur-md border border-zinc-600 rounded-lg overflow-hidden shadow-2xl hover:shadow-amber-400/20 transition-all duration-300 card-hover ring-1 ring-amber-500/20 cursor-pointer hover:scale-105"
+              >
+                <div className={`relative h-48 bg-zinc-900 ring-1 ring-amber-500/20 ${dish.image.includes('dessert-brownie') ? 'brownie-image-container' : ''}`}>
+                  <Image
+                    src={dish.image}
+                    alt={dish.name}
+                    fill
+                    className={`object-cover gallery-image image-overlay-hover brightness-105 contrast-110 ${dish.image.includes('dessert-brownie') ? 'brownie-image' : ''}`}
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
+                </div>
+                <div className="p-6 bg-gradient-to-t from-black/40 to-transparent">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl font-bold text-amber-200 text-glow-gold drop-shadow-lg">{dish.name}</h3>
+                    <span className="text-2xl font-bold text-amber-400 text-glow-bronze drop-shadow-lg bg-black/30 px-2 py-1 rounded">{dish.price}</span>
+                  </div>
+                  <p className="text-gray-200 text-sm leading-relaxed font-medium drop-shadow-md">{dish.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={signatureInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-center mt-12"
+          >
+            <Button 
+              asChild 
+              size="lg"
+              className="bg-gradient-gold-warm hover:bg-gradient-bronze-warm text-dark-primary px-8 py-4 text-lg font-semibold btn-hover-glow focus-gold"
+            >
+              <Link href="/menu">
+                Voir tout le menu
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+
+
+
+
+      {/* Modal pour afficher l'image en grand */}
+      <AnimatePresence>
+        {selectedDish && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+            onClick={() => setSelectedDish(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3, type: "spring", damping: 25, stiffness: 300 }}
+              className="relative bg-dark-card border-2 border-gold/30 rounded-2xl overflow-hidden shadow-2xl max-w-4xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Bouton de fermeture */}
+              <button
+                onClick={() => setSelectedDish(null)}
+                className="absolute top-4 right-4 z-10 bg-dark-primary/80 backdrop-blur-sm rounded-full p-3 text-gold hover:text-white hover:bg-dark-primary/90 transition-all duration-300 border border-gold/30 hover:border-gold hover:scale-110"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              {/* Image en grand */}
+              <div className="relative aspect-[4/3] max-h-[70vh] bg-dark-secondary">
+                <Image
+                  src={selectedDish.image}
+                  alt={selectedDish.name}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+
+              {/* Informations du plat */}
+              <div className="p-8 bg-gradient-to-t from-dark-primary to-dark-card">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-3xl font-bold text-gold font-heading text-glow-gold">
+                    {selectedDish.name}
+                  </h3>
+                  <span className="text-3xl font-bold text-bronze bg-dark-secondary/50 px-4 py-2 rounded-xl border border-bronze/30 text-glow-bronze">
+                    {selectedDish.price}
+                  </span>
+                </div>
+                <p className="text-warm-gray-light text-lg leading-relaxed">
+                  {selectedDish.description}
+                </p>
+                <div className="mt-6 pt-6 border-t border-zinc-700">
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Button 
+                      asChild 
+                      size="lg"
+                      className="bg-gradient-gold-warm hover:bg-gradient-bronze-warm text-dark-primary px-8 py-3 text-lg font-semibold btn-hover-glow focus-gold"
+                    >
+                      <Link href="/menu">
+                        Voir le menu complet
+                        <ArrowRight className="ml-2 w-5 h-5" />
+                      </Link>
+                    </Button>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}

@@ -1,0 +1,274 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 8%;
+    --foreground: 40 20% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 40 20% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 30 82% 58%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 40 10% 65%;
+    --accent: 25 95% 60%;
+    --accent-foreground: 0 0% 8%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 40 20% 95%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 30 82% 58%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-amber-900/20;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-amber-700/60 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-amber-600/80;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dark Mode Color Palette */
+.text-gold { color: #d4af37; }
+.text-bronze { color: #cd7f32; }
+.text-copper { color: #b87333; }
+.text-warm-white { color: #faf8f5; }
+.text-warm-gray-light { color: #d4d1ce; }
+.text-warm-gray { color: #a8a5a0; }
+
+.bg-dark-primary { background-color: #0a0a0a; }
+.bg-dark-secondary { background-color: #1a1a1a; }
+.bg-dark-card { background-color: #141414; }
+.bg-gold { background-color: #d4af37; }
+.bg-bronze { background-color: #cd7f32; }
+.bg-copper { background-color: #b87333; }
+
+/* Gradient backgrounds for Dark Mode */
+.bg-gradient-dark-warm {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d1810 100%);
+}
+
+.bg-gradient-gold-warm {
+  background: linear-gradient(135deg, #d4af37 0%, #cd7f32 50%, #b87333 100%);
+}
+
+.bg-gradient-bronze-warm {
+  background: linear-gradient(135deg, #cd7f32 0%, #b87333 50%, #8b4513 100%);
+}
+
+/* Immersive Background Classes */
+.hero-bg {
+  background-image: url('https://i.ytimg.com/vi/0BLmCdp0Azc/maxresdefault.jpg
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.philosophy-bg {
+  background-image: url('https://images.unsplash.com/photo-1699891730676-037bed3c1bed?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2Vic2l0ZSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D
+  background-size: cover;
+  background-position: center;
+}
+
+.signature-bg {
+  background-image: url('https://flikover.tech/wp-content/uploads/2025/01/Abacus-AI-Group-1024x538.jpg
+  background-size: cover;
+  background-position: center;
+}
+
+.testimonials-bg {
+  background-image: url('https://img.freepik.com/free-vector/premium-creative-quote-box-template-with-text-space-vector_1017-39923.jpg
+  background-size: cover;
+  background-position: center;
+}
+
+.about-bg {
+  background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhO2UsIc31HFrmqG6SyW6bn0pljpk05_xD_k1RVEm_vu3hnWxcFk3G3vnJi3eelOrx6gang_sBBFvUhWkkvnlsEu_UT77x5RS07Puvba03Tn26LtMeIPeH0nGF6TmXgshDFHNtPXT8ji5qZ/w1200-h630-p-k-no-nu/Web-design.jpg
+  background-size: cover;
+  background-position: center;
+}
+
+.menu-bg {
+  background-image: url('https://images.unsplash.com/photo-1726065235221-78562122baf3?mark=https%3A%2F%2Fimages.unsplash.com%2Fopengraph%2Flogo.png&mark-w=64&mark-align=top%2Cleft&mark-pad=50&h=630&w=1200&crop=faces%2Cedges&blend-w=1&blend=000000&blend-mode=normal&blend-alpha=10&auto=format&fit=crop&q=60&ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzUzMjY0ODI3fA&ixlib=rb-4.1.0
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery-bg {
+  background-image: url('https://m.media-amazon.com/images/I/61DbglSoOBL._UF894,1000_QL80_.jpg
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-bg {
+  background-image: url('https://img.freepik.com/free-vector/blue-contact-icons-background_23-2147607328.jpg
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark Overlay Classes */
+.overlay-dark {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.overlay-dark-heavy {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.overlay-dark-light {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.overlay-gradient-dark {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.7) 50%, rgba(45, 24, 16, 0.6) 100%);
+}
+
+/* Video styling */
+video {
+  @apply object-cover;
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Button hover effects */
+.btn-hover-lift {
+  @apply transition-all duration-300;
+}
+
+.btn-hover-lift:hover {
+  @apply transform -translate-y-1 shadow-lg;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+/* Gallery image hover */
+.gallery-image {
+  @apply transition-all duration-500 hover:scale-110;
+}
+
+/* Menu item animations */
+.menu-item {
+  @apply transition-all duration-300 hover:bg-amber-50/50 hover:shadow-md;
+}
+
+/* Loading spinner */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Text animations */
+.text-glow {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+/* Form focus styles */
+.form-input:focus {
+  @apply ring-2 ring-amber-500 border-amber-500 outline-none;
+}
+
+/* Responsive text sizes */
+@screen sm {
+  .responsive-text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+@screen md {
+  .responsive-text-lg {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+@screen lg {
+  .responsive-text-lg {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}

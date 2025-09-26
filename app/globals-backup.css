@@ -1,0 +1,319 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 8%;
+    --foreground: 40 20% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 40 20% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 30 82% 58%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 40 10% 65%;
+    --accent: 25 95% 60%;
+    --accent-foreground: 0 0% 8%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 40 20% 95%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 30 82% 58%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-zinc-900/20;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-amber-700/60 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-amber-600/80;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dark Mode Color Palette */
+.text-gold { color: #d4af37; }
+.text-bronze { color: #cd7f32; }
+.text-copper { color: #b87333; }
+.text-warm-white { color: #faf8f5; }
+.text-warm-gray-light { color: #d4d1ce; }
+.text-warm-gray { color: #a8a5a0; }
+
+.bg-dark-primary { background-color: #0a0a0a; }
+.bg-dark-secondary { background-color: #1a1a1a; }
+.bg-dark-card { background-color: #141414; }
+.bg-gold { background-color: #d4af37; }
+.bg-bronze { background-color: #cd7f32; }
+.bg-copper { background-color: #b87333; }
+
+/* Gradient backgrounds for Dark Mode */
+.bg-gradient-dark-warm {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d1810 100%);
+}
+
+.bg-gradient-gold-warm {
+  background: linear-gradient(135deg, #d4af37 0%, #cd7f32 50%, #b87333 100%);
+}
+
+.bg-gradient-bronze-warm {
+  background: linear-gradient(135deg, #cd7f32 0%, #b87333 50%, #8b4513 100%);
+}
+
+
+/* Fix for the CSS syntax errors */
+
+/* Immersive Background Classes */
+.hero-bg {
+  background-image: url("https://i.ytimg.com/vi/oSLwf12bkKA/hqdefault.jpg
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.philosophy-bg {
+  background-image: url("https://www.shutterstock.com/image-photo/abstract-human-antique-statue-books-260nw-2531983429.jpg
+  background-size: cover;
+  background-position: center;
+}
+
+.signature-bg {
+  background-image: url("https://lh7-rt.googleusercontent.com/docsz/AD_4nXfsv4bjx4Tu4UWXpVc_PDKf7yMV5M7MF3T9yxYCzP3Z2nqWpsyjI88tQfvH-ALAAil7KRXXuOwi70emvyBV5DXqyEs92nhrP9XmSDasYlaxsudzpCBP510iFsKvtolfLfgtgB048g?key=zdnfKxRdhp6ulY7_741Dlqkt
+  background-size: cover;
+  background-position: center;
+}
+
+.testimonials-bg {
+  background-image: url("https://i.ytimg.com/vi/Hr7rxT5qEhE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDGqu424I4ItVmWZU1GGC7lEQrbyA
+  background-size: cover;
+  background-position: center;
+}
+
+.about-bg {
+  background-image: url("https://assets.justinmind.com/wp-content/uploads/2020/02/website-background-design-guide-768x492.png
+  background-size: cover;
+  background-position: center;
+}
+
+.menu-bg {
+  background-image: url("https://t4.ftcdn.net/jpg/02/92/20/37/360_F_292203735_CSsyqyS6A4Z9Czd4Msf7qZEhoxjpzZl1.jpg
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery-bg {
+  background-image: url("https://images.unsplash.com/photo-1699891730676-037bed3c1bed?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2Vic2l0ZSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-bg {
+  background-image: url("https://www.shutterstock.com/image-vector/contact-us-background-customer-support-260nw-1333375364.jpg
+  background-size: cover;
+  background-position: center;
+}
+
+/* Restaurant Page Backgrounds */
+.contact-info-bg {
+  background-image: url("https://images.unsplash.com/photo-1682778418768-16081e4470a1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVzdGF1cmFudCUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D
+  background-size: cover;
+  background-position: center;
+}
+
+.hours-bg {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Official_CSS_Logo.svg/320px-Official_CSS_Logo.svg.png
+  background-size: cover;
+  background-position: center;
+}
+
+.location-bg {
+  background-image: url("https://www.shutterstock.com/image-photo/find-your-way-location-marking-260nw-2498819097.jpg
+  background-size: cover;
+  background-position: center;
+}
+/* Restaurant Information Card Backgrounds */
+.restaurant-contact-bg {
+  background-image: url("https://lh4.googleusercontent.com/JttxEvtE4YLuOwUx79WhAg1vw_EIrqqAyyXTBGgypDWtWMHUj4yt1LUS0bFPyN2dy73wSAoaNAlIAE0byO-e-019gKhS-3plPxMHaIIpCcDnhHmrR40hEYyu_AEXgK3mcjvRs7Zg
+  background-size: cover;
+  background-position: center;
+}
+
+.restaurant-hours-bg {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/2/2f/Disney_Animal_Kingdom_Rainforest_Cafe_1.jpg
+  background-size: cover;
+  background-position: center;
+}
+
+.restaurant-location-bg {
+  background-image: url("https://media.istockphoto.com/id/1357281964/vector/modern-summer-cafe-shop-exterior-empty-no-people-street-restaurant-terrace-outdoor-cafeteria.jpg?s=170667a&w=is&k=20&c=6zNS2Qo32_YEq2hmI3VIRaW8-gPIoEvja5q9ZKeszio=
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark Overlay Classes */
+.overlay-dark {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.overlay-dark-heavy {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.overlay-dark-light {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.overlay-gradient-dark {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.7) 50%, rgba(45, 24, 16, 0.6) 100%);
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Button animations */
+.btn-hover-glow:hover {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.btn-hover-bronze:hover {
+  background: linear-gradient(135deg, #cd7f32 0%, #b87333 100%);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Text glow effects */
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.text-glow-bronze {
+  text-shadow: 0 0 8px rgba(205, 127, 50, 0.5);
+}
+
+/* Card hover effects */
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+/* Image overlay effects */
+.image-overlay-hover:hover .overlay-dark {
+  background: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Navigation and sections */
+.nav-dark {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+/* Responsive text sizes */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-padding {
+    padding: 4rem 0;
+  }
+}
+
+/* Custom focus styles for accessibility */
+.focus-gold:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+.focus-bronze:focus {
+  outline: 2px solid #cd7f32;
+  outline-offset: 2px;
+}

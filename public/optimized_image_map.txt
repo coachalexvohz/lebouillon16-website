@@ -1,0 +1,120 @@
+Le Bouillon 16 Image Optimization Report
+=========================================
+Date: Wed Sep 24 01:42:17 UTC 2025
+
+./about-header-design.png → about-header-design-optimized.webp
+  Original: 1MB | Optimized: 90KB | Compression: 95% | Quality: 80
+./about-intro.png → about-intro-optimized.webp
+  Original: 3MB | Optimized: 101KB | Compression: 97% | Quality: 80
+./bar-1.jpg → bar-1-optimized.webp
+  Original: 7MB | Optimized: 104KB | Compression: 98% | Quality: 80
+./bar-2.jpg → bar-2-optimized.webp
+  Original: 6MB | Optimized: 88KB | Compression: 98% | Quality: 80
+./bar-3.jpg → bar-3-optimized.webp
+  Original: 7MB | Optimized: 78KB | Compression: 99% | Quality: 80
+./bavette-jeudi.png → bavette-jeudi-optimized.webp
+  Original: 1MB | Optimized: 132KB | Compression: 92% | Quality: 80
+./clients-testimonials.png → clients-testimonials-optimized.webp
+  Original: 3MB | Optimized: 51KB | Compression: 98% | Quality: 80
+./design-example.jpg → design-example-optimized.webp
+  Original: 439KB | Optimized: 91KB | Compression: 79% | Quality: 80
+./drone-restaurant-bouillon16.png → drone-restaurant-bouillon16-optimized.webp
+  Original: 16MB | Optimized: 184KB | Compression: 98% | Quality: 80
+./equipe-bouillon16.jpg → equipe-bouillon16-optimized.webp
+  Original: 347KB | Optimized: 124KB | Compression: 64% | Quality: 80
+./fondue-art-reinvente.jpg → fondue-art-reinvente-optimized.webp
+  Original: 9MB | Optimized: 143KB | Compression: 98% | Quality: 80
+./fondue-b16.jpg → fondue-b16-optimized.webp
+  Original: 157KB | Optimized: 77KB | Compression: 50% | Quality: 80
+./fondue-signature.jpg → fondue-signature-optimized.webp
+  Original: 120KB | Optimized: 95KB | Compression: 20% | Quality: 80
+./gallery-hero.jpg → gallery-hero-optimized.webp
+  Original: 344KB | Optimized: 53KB | Compression: 84% | Quality: 80
+./image-background-2.jpg → image-background-2-optimized.webp
+  Original: 6MB | Optimized: 51KB | Compression: 99% | Quality: 80
+./image-background-6.jpg → image-background-6-optimized.webp
+  Original: 5MB | Optimized: 27KB | Compression: 99% | Quality: 80
+./image-background-mobile-1.jpg → image-background-mobile-1-optimized.webp
+  Original: 6MB | Optimized: 56KB | Compression: 99% | Quality: 80
+./image-background-mobile-2.jpg → image-background-mobile-2-optimized.webp
+  Original: 6MB | Optimized: 31KB | Compression: 99% | Quality: 80
+./image-background-mobile-3.jpg → image-background-mobile-3-optimized.webp
+  Original: 6MB | Optimized: 39KB | Compression: 99% | Quality: 80
+./image-background-mobile-4.jpg → image-background-mobile-4-optimized.webp
+  Original: 6MB | Optimized: 40KB | Compression: 99% | Quality: 80
+./image-background-mobile-5.jpg → image-background-mobile-5-optimized.webp
+  Original: 6MB | Optimized: 51KB | Compression: 99% | Quality: 80
+./image-interieur.png → image-interieur-optimized.webp
+  Original: 7MB | Optimized: 101KB | Compression: 98% | Quality: 80
+./interieur-restaurant.png → interieur-restaurant-optimized.webp
+  Original: 7MB | Optimized: 101KB | Compression: 98% | Quality: 80
+./le-burger.jpg → le-burger-optimized.webp
+  Original: 186KB | Optimized: 120KB | Compression: 35% | Quality: 80
+./logo-bouillon.png → logo-bouillon-optimized.webp
+  Original: 88KB | Optimized: 11KB | Compression: 86% | Quality: 80
+./logo-resize.png → logo-resize-optimized.webp
+  Original: 40KB | Optimized: 10KB | Compression: 74% | Quality: 80
+./logo.jpg → logo-optimized.webp
+  Original: 80KB | Optimized: 9KB | Compression: 88% | Quality: 80
+./maxime.jpg → maxime-optimized.webp
+  Original: 143KB | Optimized: 46KB | Compression: 67% | Quality: 80
+./menu-example.png → menu-example-optimized.webp
+  Original: 722KB | Optimized: 47KB | Compression: 93% | Quality: 80
+./menu-header.jpg → menu-header-optimized.webp
+  Original: 1MB | Optimized: 110KB | Compression: 92% | Quality: 80
+./mobile-services-bg.jpg → mobile-services-bg-optimized.webp
+  Original: 6MB | Optimized: 53KB | Compression: 99% | Quality: 80
+./nicolas.jpg → nicolas-optimized.webp
+  Original: 186KB | Optimized: 69KB | Compression: 62% | Quality: 80
+./nouveau-logo-bouillon16.png → nouveau-logo-bouillon16-optimized.webp
+  Original: 39KB | Optimized: 10KB | Compression: 72% | Quality: 80
+./philosophy-terrasse-drone.png → philosophy-terrasse-drone-optimized.webp
+  Original: 3MB | Optimized: 99KB | Compression: 97% | Quality: 80
+./plat-burger.png → plat-burger-optimized.webp
+  Original: 1MB | Optimized: 149KB | Compression: 92% | Quality: 80
+./plat-elegance.png → plat-elegance-optimized.webp
+  Original: 1MB | Optimized: 136KB | Compression: 92% | Quality: 80
+./plat-fondue.jpg → plat-fondue-optimized.webp
+  Original: 183KB | Optimized: 64KB | Compression: 64% | Quality: 80
+./plat-grillade.png → plat-grillade-optimized.webp
+  Original: 2MB | Optimized: 171KB | Compression: 91% | Quality: 70
+./plat-pates.png → plat-pates-optimized.webp
+  Original: 1MB | Optimized: 104KB | Compression: 93% | Quality: 80
+./plat-pierre-volcanique.png → plat-pierre-volcanique-optimized.webp
+  Original: 1MB | Optimized: 101KB | Compression: 93% | Quality: 80
+./plat-steak.png → plat-steak-optimized.webp
+  Original: 1MB | Optimized: 132KB | Compression: 92% | Quality: 80
+./promo-pates.jpg → promo-pates-optimized.webp
+  Original: 153KB | Optimized: 53KB | Compression: 65% | Quality: 80
+./restaurant-interior.jpg → restaurant-interior-optimized.webp
+  Original: 317KB | Optimized: 101KB | Compression: 68% | Quality: 80
+./services-desktop-bg.jpg → services-desktop-bg-optimized.webp
+  Original: 6MB | Optimized: 56KB | Compression: 99% | Quality: 80
+./signature-dish.png → signature-dish-optimized.webp
+  Original: 1MB | Optimized: 34KB | Compression: 98% | Quality: 80
+./sylvain.jpg → sylvain-optimized.webp
+  Original: 152KB | Optimized: 49KB | Compression: 67% | Quality: 80
+./terasse-enseigne.jpg → terasse-enseigne-optimized.webp
+  Original: 244KB | Optimized: 165KB | Compression: 32% | Quality: 80
+./terasse-generale.jpg → terasse-generale-optimized.webp
+  Original: 320KB | Optimized: 166KB | Compression: 47% | Quality: 70
+./terasse-mobilier.png → terasse-mobilier-optimized.webp
+  Original: 1MB | Optimized: 90KB | Compression: 95% | Quality: 80
+./terasse-plantes.jpg → terasse-plantes-optimized.webp
+  Original: 257KB | Optimized: 156KB | Compression: 39% | Quality: 80
+./terasse-vue-exterieure.jpg → terasse-vue-exterieure-optimized.webp
+  Original: 207KB | Optimized: 187KB | Compression: 9% | Quality: 80
+./terrasse-b16.jpg → terrasse-b16-optimized.webp
+  Original: 320KB | Optimized: 166KB | Compression: 47% | Quality: 70
+./terrasse-drone-bouillon16.png → terrasse-drone-bouillon16-optimized.webp
+  Original: 3MB | Optimized: 99KB | Compression: 97% | Quality: 80
+./terrasse-nouvelle.png → terrasse-nouvelle-optimized.webp
+  Original: 1MB | Optimized: 90KB | Compression: 95% | Quality: 80
+
+OPTIMIZATION SUMMARY
+===================
+Total images processed: 54
+Successfully optimized: 54
+Original total size: 158MB
+Optimized total size: 4MB
+Total space saved: 153MB (97%)

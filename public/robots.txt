@@ -1,0 +1,37 @@
+
+# Robots.txt pour Le Bouillon 16
+# Génère automatiquement par Next.js
+
+User-agent: *
+Allow: /
+
+# Pages importantes à indexer en priorité
+Allow: /menu
+Allow: /about
+Allow: /gallery
+Allow: /contact
+
+# Empêcher l'indexation des fichiers administratifs
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json
+Disallow: /*?*utm_*
+Disallow: /*?*fbclid*
+Disallow: /*?*gclid*
+
+# Sitemap
+Sitemap: https://lebouillon16.com/sitemap.xml
+
+# Crawl-delay pour respecter les serveurs
+Crawl-delay: 1
+
+# Instructions spécifiques pour les bots principaux
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot  
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /

@@ -1,0 +1,561 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 8%;
+    --foreground: 40 20% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 40 20% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 30 82% 58%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 40 10% 65%;
+    --accent: 25 95% 60%;
+    --accent-foreground: 0 0% 8%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 40 20% 95%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 30 82% 58%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-zinc-900/20;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-amber-700/60 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-amber-600/80;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Brand Typography - Fancy Le Bouillon 16 */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+.brand-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, #d4af37 0%, #ffd700 25%, #cd7f32 50%, #b87333 75%, #d4af37 100%);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.brand-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #d4af37 0%, #ffd700 25%, #cd7f32 50%, #b87333 75%, #d4af37 100%);
+  background-size: 300% 300%;
+  opacity: 0.1;
+  border-radius: 8px;
+  z-index: -1;
+  animation: goldShimmer 3s ease-in-out infinite;
+  filter: blur(10px);
+}
+
+.brand-title:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+@keyframes goldShimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.brand-subtitle {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 500;
+  color: #cd7f32;
+  font-size: 0.75em;
+  opacity: 0.8;
+  margin-top: -4px;
+  text-shadow: 0 0 10px rgba(205, 127, 50, 0.2);
+}
+
+/* Dark Mode Color Palette */
+.text-gold { color: #d4af37; }
+.text-bronze { color: #cd7f32; }
+.text-copper { color: #b87333; }
+.text-warm-white { color: #faf8f5; }
+.text-warm-gray-light { color: #d4d1ce; }
+.text-warm-gray { color: #a8a5a0; }
+
+.bg-dark-primary { background-color: #0a0a0a; }
+.bg-dark-secondary { background-color: #1a1a1a; }
+.bg-dark-card { background-color: #141414; }
+.bg-gold { background-color: #d4af37; }
+.bg-bronze { background-color: #cd7f32; }
+.bg-copper { background-color: #b87333; }
+
+/* Gradient backgrounds for Dark Mode */
+.bg-gradient-dark-warm {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d1810 100%);
+}
+
+.bg-gradient-gold-warm {
+  background: linear-gradient(135deg, #d4af37 0%, #cd7f32 50%, #b87333 100%);
+}
+
+.bg-gradient-bronze-warm {
+  background: linear-gradient(135deg, #cd7f32 0%, #b87333 50%, #8b4513 100%);
+}
+
+/* Immersive Background Classes */
+.hero-bg {
+  background-image: url("https://cdn.abacus.ai/images/443422da-d0dc-4519-89e1-423fe437e1d4.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.philosophy-bg {
+  background-image: url("/image-background-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.signature-bg {
+  background-image: url("/signature-dish.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.testimonials-bg {
+  background-image: url("/image-background-6.jpg");
+  background-size: cover;
+  background-position: center 25%;
+}
+
+.about-bg {
+  background-image: url("https://cdn.abacus.ai/images/7a7e1dc2-d43f-4be6-b1a1-3c307e3557d8.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.menu-bg {
+  background-image: url("/menu-header.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery-bg {
+  background-image: url("/gallery-hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-bg {
+  background-image: url("/interieur-restaurant.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Restaurant Information Card Backgrounds */
+.restaurant-contact-bg {
+  background-image: url("https://cdn.abacus.ai/images/dd1f641e-8b3a-460a-8609-1f381133d0cd.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.restaurant-hours-bg {
+  background-image: url("https://cdn.abacus.ai/images/c8227c8b-8f23-4f4f-a554-190c3b48d29b.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.restaurant-location-bg {
+  background-image: url("https://cdn.abacus.ai/images/375ed243-5fb9-408b-b8ab-944176648431.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark Overlay Classes */
+.overlay-dark {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.overlay-dark-heavy {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.overlay-dark-light {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.overlay-gradient-dark {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.7) 50%, rgba(45, 24, 16, 0.6) 100%);
+}
+
+/* Lighter overlays for better image visibility */
+.overlay-gradient-light {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(20, 20, 20, 0.3) 50%, rgba(45, 24, 16, 0.2) 100%);
+}
+
+.overlay-dark-minimal {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Text Effects */
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3), 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.btn-hover-glow {
+  transition: all 0.3s ease;
+}
+
+.btn-hover-glow:hover {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.focus-gold:focus {
+  outline: none;
+  ring: 2px solid #d4af37;
+  ring-offset: 2px;
+}
+
+/* Section spacing */
+.section-padding {
+  padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 0;
+  }
+}
+
+/* Responsive text sizes */
+@media (max-width: 640px) {
+  .text-5xl {
+    font-size: 2.5rem;
+  }
+  .text-6xl {
+    font-size: 3rem;
+  }
+  .text-7xl {
+    font-size: 3.5rem;
+  }
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Custom animations for restaurant elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Backdrop blur utilities */
+.backdrop-blur-xs {
+  backdrop-filter: blur(2px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+}
+
+/* Custom utilities for better dark mode */
+.glass-card {
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
+}
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+/* Media queries for mobile-optimized background images */
+
+/* Mobile devices (up to 767px) */
+@media (max-width: 767px) {
+  /* Philosophy section - Mobile optimized */
+  .philosophy-bg {
+    background-image: url("/image-background-mobile-1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Better for mobile performance */
+  }
+
+  /* Signature dishes section - Mobile optimized */
+  .signature-bg {
+    background-image: url("/image-background-mobile-2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+  }
+
+  /* Testimonials section - Mobile optimized */
+  .testimonials-bg {
+    background-image: url("/image-background-6.jpg");
+    background-size: cover;
+    background-position: top center;
+    background-attachment: scroll;
+  }
+
+  /* About page - Mobile optimized */
+  .about-bg {
+    background-image: url("/image-background-mobile-4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+  }
+
+  /* Menu page - Use desktop image on mobile too */
+  .menu-bg {
+    background-image: url("/menu-header.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+  }
+
+  /* Gallery page - Use desktop image on mobile too */
+  .gallery-bg {
+    background-image: url("/gallery-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+  }
+
+  /* Contact page - Mobile optimized */
+  .contact-bg {
+    background-image: url("/image-background-mobile-2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+  }
+
+  /* Restaurant info cards - Mobile optimized */
+  .restaurant-contact-bg {
+    background-image: url("/image-background-mobile-3.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .restaurant-hours-bg {
+    background-image: url("/image-background-mobile-4.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .restaurant-location-bg {
+    background-image: url("/image-background-mobile-5.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Hero section optimization for mobile */
+  .hero-bg {
+    background-attachment: scroll; /* Better performance on mobile */
+  }
+
+  /* Improve mobile performance - remove fixed attachment */
+  .hero-bg,
+  .about-bg {
+    background-attachment: scroll !important;
+  }
+}
+
+/* Small mobile devices (up to 480px) */
+@media (max-width: 480px) {
+  /* Further optimize for very small screens */
+  .philosophy-bg,
+  .signature-bg,
+  .about-bg,
+  .menu-bg,
+  .gallery-bg,
+  .contact-bg {
+    background-position: center center;
+    background-size: cover;
+    min-height: 60vh; /* Ensure adequate height on small screens */
+  }
+  
+  .testimonials-bg {
+    background-position: top center;
+    background-size: cover;
+    min-height: 60vh; /* Ensure adequate height on small screens */
+  }
+}
+
+/* Tablet optimization (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Keep desktop images but optimize positioning for tablets */
+  .philosophy-bg,
+  .signature-bg,
+  .testimonials-bg,
+  .about-bg,
+  .menu-bg,
+  .gallery-bg,
+  .contact-bg {
+    background-attachment: scroll; /* Better performance on tablets too */
+  }
+}
+
+/* Gallery image optimization */
+.gallery-image {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.image-overlay-hover {
+  position: relative;
+}
+
+.image-overlay-hover:hover {
+  filter: brightness(1.1) saturate(1.1);
+}
+
+/* Specific positioning for brownie dessert image */
+.brownie-image {
+  object-position: center right !important;
+}
+
+.brownie-image-container {
+  overflow: hidden;
+}
+
+.brownie-image-container .brownie-image {
+  transform: scale(1.1) translateX(-10%);
+}
