@@ -34,6 +34,25 @@ export const metadata: Metadata = {
     telephone: true,
   },
   metadataBase: new URL('https://lebouillon16.com'),
+  // Force HTTPS canonical URLs
+  other: {
+    'canonical': 'https://lebouillon16.com',
+  },
+  // Add icons/favicon configuration
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
+      { url: '/logo-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/logo-512.png', sizes: '512x512', type: 'image/png' }
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+    other: [
+      { rel: 'mask-icon', url: '/favicon.ico', color: '#d4af37' }
+    ]
+  },
+  manifest: '/manifest.json',
   alternates: {
     canonical: '/',
     languages: {
@@ -51,11 +70,11 @@ export const metadata: Metadata = {
     description: 'Spécialistes de la fondue traditionnelle et cuisine raffinée au cœur de Lachute. Terrasse, ambiance chaleureuse.',
     images: [
       {
-        url: '/about-header-design-optimized.webp',
+        url: '/logo-og.png',
         width: 1200,
         height: 630,
-        alt: 'LeBouillon16 - Restaurant gastronomique à Lachute',
-        type: 'image/webp',
+        alt: 'LeBouillon16 - Restaurant Gastronomique à Lachute | Grillades, Fondues, Tapas',
+        type: 'image/png',
       },
       {
         url: '/terrasse-drone-bouillon16-optimized.webp',
@@ -72,7 +91,7 @@ export const metadata: Metadata = {
     creator: '@LeBouillon16',
     title: 'LeBouillon16 - Restaurant Gastronomique à Lachute',
     description: 'Spécialistes de la fondue traditionnelle et cuisine raffinée au cœur de Lachute',
-    images: ['/about-header-design-optimized.webp'],
+    images: ['/logo-og.png'],
   },
   robots: {
     index: true,
@@ -104,6 +123,14 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <head>
+        {/* Force HTTPS */}
+        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        <link rel="canonical" href="https://lebouillon16.com" />
+        
+        {/* DNS Prefetch for better performance */}
+        <link rel="dns-prefetch" href="https://lebouillon16.com" />
+        <link rel="preconnect" href="https://lebouillon16.com" crossOrigin="" />
+        
         {/* Google Search Console Verification */}
         <meta name="google-site-verification" content="C8jB1_JCvfoWzbZd0yldRz80eJjas9sNw8pf-2ucW0I" />
         
@@ -169,7 +196,12 @@ export default function RootLayout({
               "alternateName": "Bouillon 16",
               "description": "Restaurant gastronomique spécialisé dans la fondue traditionnelle et la cuisine raffinée, situé au cœur de Lachute avec une magnifique terrasse.",
               "url": "https://lebouillon16.com",
-              "logo": "https://lebouillon16.com/about-header-design-optimized.webp",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://lebouillon16.com/logo-512.png",
+                "width": "512",
+                "height": "512"
+              },
               "image": [
                 "https://placehold.co/1200x600/e2e8f0/1e293b?text=Header_design_image_for_the__About__page_of_Leboui",
                 "https://placehold.co/1200x600/e2e8f0/1e293b?text=aerial_drone_view_of_the_terrace_at_Bouillon16",

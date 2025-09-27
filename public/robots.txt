@@ -1,37 +1,27 @@
 
-# Robots.txt pour Le Bouillon 16
-# Génère automatiquement par Next.js
-
+# Robots.txt for LeBouillon16 Restaurant
 User-agent: *
 Allow: /
 
-# Pages importantes à indexer en priorité
-Allow: /menu
-Allow: /about
-Allow: /gallery
-Allow: /contact
-
-# Empêcher l'indexation des fichiers administratifs
-Disallow: /_next/
-Disallow: /api/
-Disallow: /admin/
-Disallow: /*.json
-Disallow: /*?*utm_*
-Disallow: /*?*fbclid*
-Disallow: /*?*gclid*
-
-# Sitemap
+# Sitemap location (force HTTPS)
 Sitemap: https://lebouillon16.com/sitemap.xml
 
-# Crawl-delay pour respecter les serveurs
+# Block access to admin and api routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /api/contact/
+
+# Crawl-delay (in seconds) - be respectful
 Crawl-delay: 1
 
-# Instructions spécifiques pour les bots principaux
-User-agent: Googlebot
-Allow: /
+# Host preference (force HTTPS)
+Host: https://lebouillon16.com
 
-User-agent: Bingbot  
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+# Additional directives for better SEO
+Allow: /menu
+Allow: /gallery
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /temoignages
