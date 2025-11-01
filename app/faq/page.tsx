@@ -193,8 +193,9 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Section */}
-      <section ref={faqRef} className="section-padding bg-gradient-dark-warm relative z-10">
-        <div className="container mx-auto px-4">
+      <section ref={faqRef} className="section-padding bg-gradient-dark-warm relative overflow-hidden z-10">
+        <div className="absolute inset-0 bg-[url('/bg-fondue.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}

@@ -4,10 +4,16 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { VideoHero } from '@/components/ui/video-hero';
+import { ProtectedEmail } from '@/components/ui/protected-email';
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 import { useLanguage } from '@/contexts/language-context';
 import { useInView } from 'react-intersection-observer';
-import { ChefHat, Heart, Sparkles, Star, ArrowRight, X } from 'lucide-react';
+import { ChefHat, Heart, Sparkles, Star, ArrowRight, X, Users, Award, Clock, Trophy, MapPin, Phone, Mail, ExternalLink, Calendar, Carrot, Beef, Apple, Utensils } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
@@ -28,6 +34,52 @@ export default function HomePage() {
   });
 
   const [signatureRef, signatureInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  // Refs pour les sections de "À propos"
+  const [introRef, introInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  const [statsRef, statsInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  const [teamRef, teamInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  const [promosRef, promosInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  const [conceptRef, conceptInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  const [ownersRef, ownersInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  const [chefsRef, chefsInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  const [ambianceRef, ambianceInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  const [reservationRef, reservationInView] = useInView({
     threshold: 0.2,
     triggerOnce: true
   });
@@ -76,28 +128,116 @@ export default function HomePage() {
 
   const signatureDishes = [
     {
-      name: translations?.home?.signature?.dishes?.pasta?.name || "Mix Ta Pâte et Ta Sauce",
-      description: translations?.home?.signature?.dishes?.pasta?.description || "Spécialité du mercredi - Pâtes fraîches avec sauce au choix",
+      name: "Filet de Saumon Bio Grillé",
+      description: "",
       price: "18$",
-      image: "/promo-pates-optimized.webp"
+      image: "/plat-inspiration-1.jpg",
+      limitedAvailability: true
     },
     {
-      name: translations?.home?.signature?.dishes?.burger?.name || "Le Burger Signature",
+      name: translations?.home?.signature?.dishes?.burger?.name || "Le Burger Barbu",
       description: translations?.home?.signature?.dishes?.burger?.description || "Burger gourmet maison avec pain artisanal et frites",
       price: "22$",
       image: "/le-burger-optimized.webp"
     },
     {
-      name: "Duo de Chocolat",
-      description: "Délicieux brownie au chocolat avec ganache et fruits frais",
-      price: "12$",
-      image: "/dessert-brownie-optimized.webp"
+      name: "Filet Mignon Angus",
+      description: "",
+      price: "14$",
+      image: "/plat-inspiration-2.jpg",
+      limitedAvailability: true
     }
   ];
 
+  // Données de la page "À propos"
+  const values = [
+    {
+      icon: Utensils,
+      title: "1er Service",
+      description: "fondue fromage/swiss fondue",
+      subtitle: "Servi avec 2 choix de légumes et pain à volonté",
+      color: "#d4af37"
+    },
+    {
+      icon: Beef,
+      title: "2e Service",
+      description: "Chinoise Bœuf ou poulet ou saucisses italiennes",
+      subtitle: "Choix d'accompagnement et 2 sauces",
+      color: "#e74c3c"
+    },
+    {
+      icon: Apple,
+      title: "3e Service",
+      description: "Chocolat au lait ou noir/milk or dark chocolate",
+      subtitle: "Accompagné de ses fruits frais et guimauve",
+      color: "#8e44ad"
+    }
+  ];
 
+  const stats = [
+    {
+      icon: Users,
+      number: "150,000+",
+      label: "Clients Accueillis",
+      description: "Moments inoubliables partagés ensemble"
+    },
+    {
+      icon: Clock,
+      number: "10+",
+      label: "Années d'Excellence",
+      description: "Depuis 2014, nous régalons Lachute avec passion"
+    },
+    {
+      icon: ChefHat,
+      number: "6",
+      label: "Plats Signature",
+      description: "Créations uniques de nos chefs experts"
+    },
+    {
+      icon: Star,
+      number: "4.7★",
+      label: "Note Moyenne",
+      description: "Excellence reconnue par nos clients"
+    }
+  ];
 
-
+  const hours = [
+    { 
+      day: 'Lundi', 
+      hours: 'Fermé',
+      closed: true
+    },
+    { 
+      day: 'Mardi', 
+      hours: '16h - 20h30',
+      closed: false
+    },
+    { 
+      day: 'Mercredi', 
+      hours: '16h - 20h30',
+      closed: false
+    },
+    { 
+      day: 'Jeudi', 
+      hours: '16h - 21h',
+      closed: false
+    },
+    { 
+      day: 'Vendredi', 
+      hours: '16h - 22h',
+      closed: false
+    },
+    { 
+      day: 'Samedi', 
+      hours: '16h - 22h',
+      closed: false
+    },
+    { 
+      day: 'Dimanche', 
+      hours: 'Fermé',
+      closed: true
+    }
+  ];
 
   return (
     <>
@@ -115,7 +255,7 @@ export default function HomePage() {
             className="w-full bg-black/20 backdrop-blur-sm rounded-3xl p-8 mx-4"
           >
             <p className="text-xl md:text-2xl text-warm-gray-light mb-8 max-w-3xl mx-auto leading-relaxed">
-              {translations?.home?.hero?.subtitle || 'Une expérience gastronomique authentique au cœur de Lachute'}
+              {translations?.home?.hero?.subtitle || 'Une expérience authentique au cœur de Lachute'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -142,57 +282,23 @@ export default function HomePage() {
                   </Link>
                 </Button>
               </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button 
+                  asChild 
+                  size="lg"
+                  className="bg-bronze hover:bg-bronze-light text-dark-primary px-8 py-4 text-lg font-semibold btn-hover-glow focus-gold"
+                >
+                  <Link href="https://m.me/Bouillon16" target="_blank" rel="noopener noreferrer">
+                    {translations?.home?.hero?.cta3 || 'Réserver votre table'}
+                  </Link>
+                </Button>
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </VideoHero>
 
-      {/* Philosophy Section */}
-      <section ref={philosophyRef} className="relative philosophy-bg section-padding">
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={philosophyInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16 bg-black/30 backdrop-blur-sm rounded-2xl p-8 mx-auto max-w-4xl"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
-              {translations?.home?.philosophy?.title || 'Notre Philosophie'}
-            </h2>
-            <p className="text-xl text-warm-gray-light max-w-3xl mx-auto">
-              {translations?.home?.philosophy?.subtitle || 'L\'excellence culinaire dans un cadre chaleureux'}
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {philosophyItems.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={philosophyInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="bg-dark-card border border-zinc-700 rounded-lg p-8 shadow-2xl hover:shadow-2xl transition-all duration-300 card-hover backdrop-blur-sm"
-                >
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-gold-warm rounded-full mb-6 mx-auto">
-                    <Icon className="w-8 h-8 text-dark-primary" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-gold mb-4 text-center text-glow-gold">
-                    {item.title}
-                  </h3>
-                  <p className="text-warm-gray-light text-center leading-relaxed">
-                    {item.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Signature Dishes Section */}
-      <section ref={signatureRef} className="relative signature-bg section-padding">
+<section ref={signatureRef} className="relative signature-bg section-padding">
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -201,7 +307,7 @@ export default function HomePage() {
             className="text-center mb-16 bg-black/30 backdrop-blur-sm rounded-2xl p-8 mx-auto max-w-4xl"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
-              {translations?.home?.signature?.title || 'Nos Créations Signature'}
+              {translations?.home?.signature?.title || 'Nos Plats Inspiration'}
             </h2>
             <p className="text-xl text-warm-gray-light max-w-3xl mx-auto">
               {translations?.home?.signature?.subtitle || 'Des plats uniques créés avec passion par notre chef'}
@@ -218,7 +324,7 @@ export default function HomePage() {
                 onClick={() => setSelectedDish(dish)}
                 className="bg-dark-card/95 backdrop-blur-md border border-zinc-600 rounded-lg overflow-hidden shadow-2xl hover:shadow-amber-400/20 transition-all duration-300 card-hover ring-1 ring-amber-500/20 cursor-pointer hover:scale-105"
               >
-                <div className={`relative h-48 bg-zinc-900 ring-1 ring-amber-500/20 ${dish.image.includes('dessert-brownie') ? 'brownie-image-container' : ''}`}>
+                <div className={`relative h-72 bg-zinc-900 ring-1 ring-amber-500/20 ${dish.image.includes('dessert-brownie') ? 'brownie-image-container' : ''}`}>
                   <Image
                     src={dish.image}
                     alt={dish.name}
@@ -229,11 +335,17 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
                 </div>
                 <div className="p-6 bg-gradient-to-t from-black/40 to-transparent">
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="mb-3">
                     <h3 className="text-xl font-bold text-amber-200 text-glow-gold drop-shadow-lg">{dish.name}</h3>
-                    <span className="text-2xl font-bold text-amber-400 text-glow-bronze drop-shadow-lg bg-black/30 px-2 py-1 rounded">{dish.price}</span>
                   </div>
-                  <p className="text-gray-200 text-sm leading-relaxed font-medium drop-shadow-md">{dish.description}</p>
+                  {dish.description && (
+                    <p className="text-gray-200 text-sm leading-relaxed font-medium drop-shadow-md mb-2">{dish.description}</p>
+                  )}
+                  {dish.limitedAvailability && (
+                    <p className="text-amber-300 text-xs italic font-medium drop-shadow-md bg-amber-900/20 px-3 py-1 rounded-full inline-block">
+                      Disponibilité limitée
+                    </p>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -258,10 +370,6 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
-
-
-
-
 
       {/* Modal pour afficher l'image en grand */}
       <AnimatePresence>
@@ -333,6 +441,903 @@ export default function HomePage() {
           </motion.div>
         )}
       </AnimatePresence>
+
+
+
+<section ref={philosophyRef} className="relative philosophy-bg section-padding">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={philosophyInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16 bg-black/30 backdrop-blur-sm rounded-2xl p-8 mx-auto max-w-4xl"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
+              {translations?.home?.philosophy?.title || 'Nos Spécialités'}
+            </h2>
+            <p className="text-xl text-warm-gray-light max-w-3xl mx-auto">
+              {translations?.home?.philosophy?.subtitle || 'L\'excellence culinaire dans un cadre chaleureux'}
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {philosophyItems.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={philosophyInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="bg-dark-card border border-zinc-700 rounded-lg p-8 shadow-2xl hover:shadow-2xl transition-all duration-300 card-hover backdrop-blur-sm"
+                >
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-gold-warm rounded-full mb-6 mx-auto">
+                    <Icon className="w-8 h-8 text-dark-primary" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-gold mb-4 text-center text-glow-gold">
+                    {item.title}
+                  </h3>
+                  <p className="text-warm-gray-light text-center leading-relaxed">
+                    {item.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+<section ref={promosRef} className="py-16 bg-dark-secondary relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-thai.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={promosInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-warm-white font-heading text-glow-gold">
+              Nos Promotions
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Promo After Work */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={promosInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm"
+            >
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center">
+                  <Clock className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-warm-white ml-4 text-glow-gold">
+                  PROMO AFTER WORK
+                </h3>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-xl font-semibold text-gold mb-4">
+                  Du mardi au jeudi — 16h à 19h
+                </h4>
+                
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center p-3 bg-dark-secondary/50 rounded-lg">
+                    <span className="text-warm-gray-light">Cosmo / Bloody / Mojito</span>
+                    <span className="text-gold font-bold text-lg">7$</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-dark-secondary/50 rounded-lg">
+                    <span className="text-warm-gray-light">Verre de vin maison</span>
+                    <span className="text-gold font-bold text-lg">7$</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-dark-secondary/50 rounded-lg">
+                    <span className="text-warm-gray-light">Pinte Bud / Michelob Ultra</span>
+                    <span className="text-gold font-bold text-lg">7$</span>
+                  </div>
+                  <div className="flex justify-between items-center p-3 bg-dark-secondary/50 rounded-lg">
+                    <span className="text-warm-gray-light">Pichet Bud / Michelob Ultra</span>
+                    <span className="text-gold font-bold text-lg">20$</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Offres par Jour */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={promosInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm"
+            >
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center">
+                  <Calendar className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-warm-white ml-4 text-glow-gold">
+                  OFFRES PAR JOUR
+                </h3>
+              </div>
+
+              <div className="space-y-4">
+                <div className="p-4 bg-gradient-to-r from-blue-900/50 to-blue-800/50 rounded-lg border border-blue-700/50">
+                  <h4 className="text-lg font-semibold text-blue-300 mb-2">Mardi</h4>
+                  <p className="text-warm-gray-light">
+                    Fondue (boeuf, poulet, saucisse italienne) — 2e à moitié prix
+                  </p>
+                </div>
+                
+                <div className="p-4 bg-gradient-to-r from-green-900/50 to-green-800/50 rounded-lg border border-green-700/50">
+                  <h4 className="text-lg font-semibold text-green-300 mb-2">Mercredi</h4>
+                  <p className="text-warm-gray-light">
+                    Mixe ta pâte & ta sauce — 18$ + Vin rouge en vedette
+                  </p>
+                </div>
+
+                <div className="p-4 bg-gradient-to-r from-purple-900/50 to-purple-800/50 rounded-lg border border-purple-700/50">
+                  <h4 className="text-lg font-semibold text-purple-300 mb-2">Jeudi</h4>
+                  <p className="text-warm-gray-light">
+                    Nos incontournables - Bavette Angus ou Saumon panko — 28$
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+<section ref={introRef} className="section-padding bg-gradient-dark-warm relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-fondue.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Carte "UN PEU DE NOUS" */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={introInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className="relative rounded-2xl overflow-hidden shadow-2xl h-[400px]"
+              style={{
+                backgroundImage: 'url(/fondue-art-reinvente-optimized.webp)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundColor: '#1a1a1a'
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/20 via-dark-primary/10 to-dark-primary/20" />
+            </motion.div>
+
+            {/* Contenu philosophie et valeurs */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={introInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-8"
+            >
+              {/* Texte principal */}
+              <div>
+                <h1 className="text-3xl md:text-4xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
+                  L'ART DE LA FONDUE RÉINVENTÉ
+                </h1>
+                <p className="text-lg text-warm-gray-light leading-relaxed mb-6">
+                  Vous pouvez également l'expérimenter en trilogie
+                </p>
+              </div>
+
+              {/* Cartes de valeurs */}
+              <div className="space-y-4">
+                {values.map((value, index) => {
+                  const Icon = value.icon;
+                  return (
+                    <motion.div
+                      key={value.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={introInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                      className="bg-dark-card/80 border border-zinc-700/50 rounded-xl p-6 backdrop-blur-sm hover:bg-dark-card transition-all duration-300"
+                    >
+                      <div className="flex items-center space-x-4">
+                        <div 
+                          className="w-12 h-12 rounded-full flex items-center justify-center"
+                          style={{ backgroundColor: value.color }}
+                        >
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-semibold text-gold mb-1">
+                            {value.title}
+                          </h3>
+                          <p className="text-warm-gray-light text-sm font-medium mb-1">
+                            {value.description}
+                          </p>
+                          {value.subtitle && (
+                            <p className="text-warm-gray-light/80 text-xs italic">
+                              {value.subtitle}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* Prix de la trilogie */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={introInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="bg-gradient-to-r from-gold/10 to-bronze/10 border border-gold/30 rounded-xl p-6 backdrop-blur-sm"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gold mb-2">
+                      54$
+                    </h3>
+                    <p className="text-warm-gray-light text-sm">
+                      Extra en sus
+                    </p>
+                  </div>
+                  <div className="w-12 h-12 bg-gradient-to-br from-gold to-bronze rounded-full flex items-center justify-center">
+                    <Star className="w-6 h-6 text-dark-primary fill-dark-primary" />
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+<section ref={statsRef} className="section-padding bg-gradient-dark-warm relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-saumon.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={statsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
+              Nos Réussites en Chiffres
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={statsInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  className="bg-dark-card border border-zinc-700 rounded-xl p-8 text-center shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300 group"
+                >
+                  <div className="w-16 h-16 bg-gradient-to-br from-gold to-bronze rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Icon className="w-8 h-8 text-dark-primary" />
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-bold text-warm-white mb-2 text-glow-gold">
+                    {stat.number}
+                  </h3>
+                  <p className="text-warm-gray-light font-medium mb-2">
+                    {stat.label}
+                  </p>
+                  <p className="text-warm-gray-light/80 text-sm px-2 leading-relaxed">
+                    {stat.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Texte SEO descriptif complémentaire */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={statsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-16 text-center"
+          >
+            <div className="max-w-4xl mx-auto bg-dark-card/60 border border-zinc-700/50 rounded-2xl p-8 backdrop-blur-sm">
+              <p className="text-warm-gray-light text-lg leading-relaxed">
+                Fort de <strong className="text-gold">plus de 10 années d'excellence</strong> à Lachute, 
+                <strong className="text-bronze"> Bouillon16</strong> continue d'impressionner avec ses 
+                <strong className="text-copper"> 6 spécialités signature</strong> qui ont séduit plus de 
+                <strong className="text-gold"> 150 000 visiteurs</strong>. Notre engagement envers la qualité 
+                nous vaut une <strong className="text-bronze">note exceptionnelle de 4,7 sur 5</strong>, 
+                confirmant notre position de leader gastronomique dans les Laurentides.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+
+
+      {/* Section Notre Équipe */}
+      <section 
+        ref={teamRef} 
+        className="relative section-padding overflow-hidden"
+        style={{
+          backgroundImage: 'url(/equipe-bouillon16-optimized.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-dark-primary/40 backdrop-blur-[1px]" />
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={teamInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-8 font-heading text-glow-gold drop-shadow-2xl">
+              Notre Équipe
+            </h2>
+            <div className="max-w-2xl mx-auto bg-dark-card/85 border border-zinc-700/50 rounded-xl p-8 shadow-2xl backdrop-blur-lg">
+              <div className="w-16 h-16 bg-gradient-to-br from-gold to-bronze rounded-full flex items-center justify-center mx-auto mb-6">
+                <Trophy className="w-8 h-8 text-dark-primary" />
+              </div>
+              <p className="text-warm-gray-light text-lg leading-relaxed">
+                Une équipe passionnée et unie qui donne vie à l'expérience culinaire exceptionnelle 
+                du Bouillon 16, où chaque membre contribue à créer des moments inoubliables pour nos clients.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Section Propriétaires du Bouillon16 */}
+      <section 
+        ref={ownersRef} 
+        className="section-padding relative overflow-hidden"
+        style={{
+          backgroundImage: 'url(/terrasse-proprietaires-bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-dark-primary/60 backdrop-blur-[1px]"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={ownersInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6)' }}>
+              Fiers co-propriétaires du Bouillon16
+            </h2>
+          </motion.div>
+
+          <div className="flex justify-center max-w-2xl mx-auto">
+            {/* Co-propriétaires */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={ownersInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-dark-card border border-zinc-700 rounded-2xl shadow-2xl backdrop-blur-sm overflow-hidden group hover:shadow-3xl transition-all duration-300 w-full"
+            >
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className="relative h-[500px] bg-gradient-to-br from-gold/10 to-bronze/10 overflow-hidden cursor-pointer">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-bronze/20 group-hover:from-gold/30 group-hover:to-bronze/30 transition-all duration-300"></div>
+                    <div className="relative h-full">
+                      <Image
+                        src="/audrey-sylvain-proprietaires.jpg"
+                        loading="lazy"
+                        alt="Audrey Marleau et Sylvain Leseize - Fiers co-propriétaires du Bouillon 16"
+                        fill
+                        className="object-cover object-center"
+                        sizes="(max-width: 768px) 100vw, 672px"
+                      />
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="bg-dark-primary/80 backdrop-blur-sm rounded-lg px-4 py-2">
+                        <p className="text-warm-white text-sm font-medium">Cliquez pour agrandir</p>
+                      </div>
+                    </div>
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl bg-dark-primary/95 border-gold/30">
+                  <div className="relative w-full h-[80vh]">
+                    <Image
+                      src="/audrey-sylvain-proprietaires.jpg"
+                      alt="Audrey Marleau et Sylvain Leseize - Fiers co-propriétaires du Bouillon 16"
+                      fill
+                      className="object-contain"
+                      sizes="100vw"
+                    />
+                  </div>
+                </DialogContent>
+              </Dialog>
+              <div className="p-8 text-center">
+                <h3 className="text-3xl font-bold text-gold mb-2 text-glow-gold">
+                  Audrey Marleau
+                </h3>
+                <h3 className="text-3xl font-bold text-bronze text-glow-gold">
+                  Sylvain Leseize
+                </h3>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Nos Chefs & Expertise */}
+      <section ref={chefsRef} className="section-padding bg-dark-secondary relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-burger.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={chefsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
+              Nos Chefs & Expertise
+            </h2>
+            <p className="text-xl text-warm-gray-light max-w-3xl mx-auto leading-relaxed">
+              Une équipe passionnée avec plus de 85 ans d'expérience cumulée
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={chefsInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-dark-card border border-zinc-700 rounded-2xl shadow-2xl backdrop-blur-sm overflow-hidden group hover:shadow-3xl transition-all duration-300"
+            >
+              <div className="relative h-80 bg-gradient-to-br from-gold/10 to-bronze/10 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-bronze/20 group-hover:from-gold/30 group-hover:to-bronze/30 transition-all duration-300"></div>
+                <div className="relative h-full">
+                  <Image
+                    src="/sylvain-optimized.webp"
+                    loading="lazy"
+                    alt="Sylvain Leseize - Chef Exécutif et Co-propriétaire du Bouillon 16, plus de 45 ans d'expérience culinaire"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
+                  />
+                </div>
+                <div className="absolute top-4 right-4 bg-gold/20 backdrop-blur-sm rounded-lg px-3 py-1">
+                  <span className="text-gold font-bold text-sm">45+ ans</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gold mb-2 text-glow-gold">
+                  Sylvain Leseize
+                </h3>
+                <p className="text-bronze font-medium mb-4">Chef Exécutif & Co-propriétaire</p>
+                <p className="text-warm-gray-light leading-relaxed">
+                  Plus de 45 ans d'expérience culinaire. Expert reconnu en viandes et spécialiste des recettes tendances, 
+                  il apporte son savoir-faire exceptionnel à chaque création.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={chefsInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="bg-dark-card border border-zinc-700 rounded-2xl shadow-2xl backdrop-blur-sm overflow-hidden group hover:shadow-3xl transition-all duration-300"
+            >
+              <div className="relative h-80 bg-gradient-to-br from-bronze/10 to-copper/10 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-bronze/20 to-copper/20 group-hover:from-bronze/30 group-hover:to-copper/30 transition-all duration-300"></div>
+                <div className="relative h-full">
+                  <Image
+                    src="/maxime-optimized.webp"
+                    loading="lazy"
+                    alt="Maxime Leseize - Chef cuisinier du Bouillon 16, plus de 25 ans d'expérience en cuisine créative"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
+                  />
+                </div>
+                <div className="absolute top-4 right-4 bg-bronze/20 backdrop-blur-sm rounded-lg px-3 py-1">
+                  <span className="text-bronze font-bold text-sm">25+ ans</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-bronze mb-2 text-glow-gold">
+                  Maxime Leseize
+                </h3>
+                <p className="text-copper font-medium mb-4">Chef cuisinier</p>
+                <p className="text-warm-gray-light leading-relaxed">
+                  Plus de 25 ans d'expérience en cuisine professionnelle. Maître de la créativité culinaire, 
+                  il sublime nos spécialités avec passion et innovation.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={chefsInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="bg-dark-card border border-zinc-700 rounded-2xl shadow-2xl backdrop-blur-sm overflow-hidden group hover:shadow-3xl transition-all duration-300"
+            >
+              <div className="relative h-80 bg-gradient-to-br from-copper/10 to-gold/10 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-copper/20 to-gold/20 group-hover:from-copper/30 group-hover:to-gold/30 transition-all duration-300"></div>
+                <div className="relative h-full">
+                  <Image
+                    src="/nicolas-optimized.webp"
+                    loading="lazy"
+                    alt="Nicholas Quann - Sous Chef du Bouillon 16, plus de 25 ans d'expérience en cuisine gastronomique"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
+                  />
+                </div>
+                <div className="absolute top-4 right-4 bg-copper/20 backdrop-blur-sm rounded-lg px-3 py-1">
+                  <span className="text-copper font-bold text-sm">25+ ans</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-copper mb-2 text-glow-gold">
+                  Nicholas Quann
+                </h3>
+                <p className="text-gold font-medium mb-4">Sous Chef</p>
+                <p className="text-warm-gray-light leading-relaxed">
+                  Plus de 25 ans d'expérience en cuisine gastronomique. Artisan du goût et gardien de nos traditions, 
+                  il assure l'excellence dans chaque assiette.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section ref={conceptRef} className="section-padding bg-gradient-dark-warm relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-mignon.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={conceptInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
+              Notre Concept Culinaire
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={conceptInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300"
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-gold to-bronze rounded-full flex items-center justify-center mx-auto mb-6">
+                <ChefHat className="w-8 h-8 text-dark-primary" />
+              </div>
+              <h3 className="text-2xl font-bold text-gold mb-4 text-center text-glow-gold">
+                Création B16
+              </h3>
+              <ul className="text-warm-gray-light space-y-3">
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-bronze rounded-full"></div>
+                  <span>Fondues traditionnelles et créatives</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-bronze rounded-full"></div>
+                  <span>Planche gastronomique pour 2</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-bronze rounded-full"></div>
+                  <span>Grillades vieillis</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-bronze rounded-full"></div>
+                  <span>Pierre volcanique</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-bronze rounded-full"></div>
+                  <span>Tapas gourmandes</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-bronze rounded-full"></div>
+                  <span>Produit du terroir</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={conceptInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300"
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-bronze to-copper rounded-full flex items-center justify-center mx-auto mb-6">
+                <MapPin className="w-8 h-8 text-dark-primary" />
+              </div>
+              <h3 className="text-2xl font-bold text-bronze mb-4 text-center text-glow-gold">
+                Emplacement Privilégié
+              </h3>
+              <ul className="text-warm-gray-light space-y-3">
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-gold rounded-full"></div>
+                  <span>Centre-ville de Lachute, rue Principale</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-gold rounded-full"></div>
+                  <span>Grande terrasse panoramique</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-gold rounded-full"></div>
+                  <span>Salle à manger spacieuse</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-gold rounded-full"></div>
+                  <span>Salle privée disponible</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-gold rounded-full"></div>
+                  <span>Accès facile pour mobilité réduite et stationnement gratuit</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={conceptInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300"
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-copper to-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                <Heart className="w-8 h-8 text-dark-primary" />
+              </div>
+              <h3 className="text-2xl font-bold text-copper mb-4 text-center text-glow-gold">
+                Service & Valeurs
+              </h3>
+              <ul className="text-warm-gray-light space-y-3">
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-bronze rounded-full"></div>
+                  <span>Service personnalisé et attentionné</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-bronze rounded-full"></div>
+                  <span>Clientèle de 0 à 99 ans</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-bronze rounded-full"></div>
+                  <span>Section bar et cocktails</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-bronze rounded-full"></div>
+                  <span>Soirées musique</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-bronze rounded-full"></div>
+                  <span>Cuisine écoresponsable</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+<section ref={ambianceRef} className="section-padding bg-gradient-dark-warm relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-magret.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={ambianceInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
+              Ambiance & Décor
+            </h2>
+            <p className="text-xl text-warm-gray-light max-w-3xl mx-auto leading-relaxed">
+              Un cadre unique alliant modernité et authenticité
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={ambianceInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-6"
+            >
+              <div className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-gold to-bronze rounded-full flex items-center justify-center mr-4">
+                    <Heart className="w-6 h-6 text-dark-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gold text-glow-gold">
+                    Atmosphère Feutrée
+                  </h3>
+                </div>
+                <p className="text-warm-gray-light leading-relaxed">
+                  Une ambiance douce et intimiste, parfaite pour les moments précieux en famille ou entre amis. 
+                  L'éclairage tamisé crée une atmosphère chaleureuse et romantique.
+                </p>
+              </div>
+
+              <div className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-bronze to-copper rounded-full flex items-center justify-center mr-4">
+                    <Users className="w-6 h-6 text-dark-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-bronze text-glow-gold">
+                    Esprit Familial
+                  </h3>
+                </div>
+                <p className="text-warm-gray-light leading-relaxed">
+                  Un cadre accueillant et chaleureux où chacun se sent comme à la maison. 
+                  Notre équipe vous accueille avec le sourire pour une expérience conviviale et mémorable.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={ambianceInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="space-y-6"
+            >
+              <div className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-copper to-gold rounded-full flex items-center justify-center mr-4">
+                    <Award className="w-6 h-6 text-dark-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-copper text-glow-gold">
+                    Design Moderne
+                  </h3>
+                </div>
+                <p className="text-warm-gray-light leading-relaxed">
+                  Un décor contemporain aux lignes épurées, mariant harmonieusement matériaux nobles et technologie. 
+                  Chaque détail a été pensé pour votre confort et votre plaisir visuel.
+                </p>
+              </div>
+
+              <div className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-gold to-bronze rounded-full flex items-center justify-center mr-4">
+                    <Star className="w-6 h-6 text-dark-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gold text-glow-gold">
+                    Touches Rustiques
+                  </h3>
+                </div>
+                <p className="text-warm-gray-light leading-relaxed">
+                  Des éléments authentiques qui rappellent nos racines : bois naturel, pierre apparente et objets vintage 
+                  créent un contraste élégant avec la modernité ambiante.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+<section ref={reservationRef} className="section-padding bg-dark-secondary relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-poke.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={reservationInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
+              Réservations & Paiement
+            </h2>
+            <p className="text-xl text-warm-gray-light max-w-3xl mx-auto leading-relaxed">
+              Toutes les informations pratiques pour votre visite
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={reservationInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-8"
+            >
+              <div className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300">
+                <h3 className="text-2xl font-bold text-gold mb-6 text-glow-gold flex items-center">
+                  <Phone className="w-6 h-6 mr-3" />
+                  Modes de Réservation
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4 p-4 rounded-lg bg-dark-secondary/50">
+                    <Phone className="w-5 h-5 text-gold flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-bronze">Téléphone</p>
+                      <p className="text-warm-gray-light text-sm">(450) 562-4323</p>
+                    </div>
+                  </div>
+                  <div className="p-4 rounded-lg bg-dark-secondary/50">
+                    <div className="flex items-center gap-4 mb-2">
+                      <Mail className="w-5 h-5 text-bronze flex-shrink-0" />
+                      <div>
+                        <p className="font-semibold text-copper">Email</p>
+                      </div>
+                    </div>
+                    <div className="ml-9">
+                      <ProtectedEmail 
+                        email="Bouillon16@gmail.com"
+                        variant="inline"
+                        buttonText="Cliquez pour voir l'email"
+                        className="text-sm"
+                      />
+                    </div>
+                  </div>
+                  <a 
+                    href="https://www.facebook.com/Bouillon16"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 rounded-lg bg-dark-secondary/50 hover:bg-dark-secondary/70 transition-all duration-300 hover:scale-105 cursor-pointer group"
+                  >
+                    <ExternalLink className="w-5 h-5 text-copper flex-shrink-0 group-hover:text-gold transition-colors duration-300" />
+                    <div>
+                      <p className="font-semibold text-gold group-hover:text-gold/90 transition-colors duration-300">Facebook Messenger</p>
+                      <p className="text-warm-gray-light text-sm group-hover:text-warm-gray transition-colors duration-300">Message direct sur notre page</p>
+                    </div>
+                  </a>
+                </div>
+                
+                <div className="mt-6 p-4 bg-gold/10 rounded-lg border border-gold/20">
+                  <p className="text-gold font-medium mb-2">Politique d'Annulation</p>
+                  <p className="text-warm-gray-light text-sm">
+                    Aucune politique d'annulation stricte pour le moment. 
+                    Nous vous demandons simplement de nous prévenir si vous ne pouvez pas honorer votre réservation.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={reservationInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="space-y-8"
+            >
+              <div className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300">
+                <h3 className="text-2xl font-bold text-bronze mb-6 text-glow-gold flex items-center">
+                  <Award className="w-6 h-6 mr-3" />
+                  Moyens de Paiement
+                </h3>
+                <div className="grid grid-cols-1 gap-4">
+                  <div className="flex items-center gap-4 p-4 rounded-lg bg-green-900/20 border border-green-700/30">
+                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    <span className="text-warm-white font-medium">Carte bancaire (Débit / Crédit)</span>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 rounded-lg bg-green-900/20 border border-green-700/30">
+                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    <span className="text-warm-white font-medium">Espèces</span>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 rounded-lg bg-green-900/20 border border-green-700/30">
+                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    <span className="text-warm-white font-medium">Chèque d'entreprise</span>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 rounded-lg bg-green-900/20 border border-green-700/30">
+                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    <span className="text-warm-white font-medium">Interac</span>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 rounded-lg bg-green-900/20 border border-green-700/30">
+                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    <span className="text-warm-white font-medium">Virement (si nécessaire)</span>
+                  </div>
+                </div>
+                
+                <div className="mt-6 p-4 bg-bronze/10 rounded-lg border border-bronze/20">
+                  <p className="text-bronze font-medium mb-2">Pourboires</p>
+                  <p className="text-warm-gray-light text-sm">
+                    Les pourboires sont entièrement à la discrétion du client. 
+                    Ils ne sont jamais obligatoires mais toujours appréciés par notre équipe.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
     </>
   );
 }

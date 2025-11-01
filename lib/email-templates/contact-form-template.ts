@@ -15,7 +15,7 @@ export function generateContactEmailTemplate(data: ContactEmailData): string {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nouveau message de contact - LeBouillon16</title>
+    <title>Nouveau message de contact - Bouillon16</title>
     <style>
         * {
             margin: 0;
@@ -315,7 +315,7 @@ export function generateContactEmailTemplate(data: ContactEmailData): string {
             <div class="contact-info">
                 📍 575 Rue Principale, Lachute, QC<br>
                 📞 (450) 562-4323<br>
-                🌐 lebouillon16.ca
+                🌐 Bouillon16.ca
             </div>
         </div>
     </div>

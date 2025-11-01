@@ -31,7 +31,9 @@ import {
   Calendar,
   Car,
   Users,
-  Utensils
+  Utensils,
+  Eye,
+  EyeOff
 } from 'lucide-react';
 
 export default function ContactPage() {
@@ -45,6 +47,7 @@ export default function ContactPage() {
   });
 
   const [consentGiven, setConsentGiven] = useState(false);
+  const [showPhone, setShowPhone] = useState(false);
   
   const [heroRef, heroInView] = useInView({
     threshold: 0.3,
@@ -129,7 +132,7 @@ export default function ContactPage() {
       id: 'address',
       icon: MapPin,
       title: translations?.contact?.info?.address?.title || 'Adresse',
-      info: `${translations?.contact?.info?.address?.line1 || '575 Rue Principale'},\n${translations?.contact?.info?.address?.line2 || 'Lachute, QC J8H 1Y8'},\nCanada`,
+      info: `${translations?.contact?.info?.address?.line1 || '575 Rue Principale'},\n${translations?.contact?.info?.address?.line2 || 'Lachute, Qc J8H 1Y8'},\nCanada`,
       color: 'from-gold to-bronze',
       action: () => window.open('https://maps.google.com/?q=575+Rue+Principale+Lachute', '_blank')
     },
@@ -183,20 +186,20 @@ export default function ContactPage() {
         ref={heroRef}
         className="relative contact-bg min-h-[70vh] flex items-center justify-center overflow-hidden"
       >
-        <div className="absolute inset-0 overlay-gradient-light" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/85 via-dark-primary/70 to-dark-primary/60" />
         <div className="relative container mx-auto px-4 text-center z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <div className="w-16 h-16 bg-gradient-gold-warm rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 bg-gradient-gold-warm rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
               <MessageCircle className="w-8 h-8 text-dark-primary" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
+            <h1 className="text-5xl md:text-6xl font-bold text-warm-white mb-6 font-heading drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
               {translations?.contact?.hero?.title || 'Contact & Réservations'}
             </h1>
-            <p className="text-xl text-warm-gray-light max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-warm-white max-w-3xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               {translations?.contact?.hero?.subtitle || 'Nous sommes à votre écoute pour toutes vos questions et réservations'}
             </p>
           </motion.div>
@@ -204,8 +207,25 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Cards Section */}
-      <section ref={cardsRef} className="section-padding bg-gradient-dark-warm">
-        <div className="container mx-auto px-4">
+      <section ref={cardsRef} className="section-padding bg-gradient-dark-warm relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-tartare.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={cardsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <div className="w-16 h-16 bg-gradient-to-br from-bronze to-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
+              <MessageCircle className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-4 font-heading text-glow-gold drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+              Nos Coordonnées
+            </h2>
+            <p className="text-lg text-warm-gray-light max-w-3xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              Nous sommes à votre disposition pour répondre à toutes vos questions
+            </p>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {contactCards.map((card, index) => {
               const Icon = card.icon;
@@ -228,7 +248,7 @@ export default function ContactPage() {
                     </h3>
                     <div className="flex justify-center">
                       <ProtectedEmail 
-                        email="lebouillon16@gmail.com"
+                        email="Bouillon16@gmail.com"
                         variant="card"
                         buttonText="Cliquez pour voir l'email"
                         className="w-full max-w-sm"
@@ -265,8 +285,25 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section id="contact-form" ref={formRef} className="section-padding bg-dark-secondary">
-        <div className="container mx-auto px-4">
+      <section id="contact-form" ref={formRef} className="section-padding bg-dark-secondary relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-saumon.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={formInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <div className="w-16 h-16 bg-gradient-to-br from-gold to-bronze rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
+              <Send className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-4 font-heading text-glow-gold drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+              Envoyez-nous un Message
+            </h2>
+            <p className="text-lg text-warm-gray-light max-w-3xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              Remplissez le formulaire ci-dessous ou consultez nos horaires d'ouverture
+            </p>
+          </motion.div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Formulaire de Contact */}
             <motion.div
@@ -302,8 +339,7 @@ export default function ContactPage() {
                       
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {/* Téléphone */}
-                        <motion.a
-                          href="tel:+14505624323"
+                        <motion.div
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           className="flex items-center gap-3 p-4 bg-dark-secondary/50 rounded-lg border border-bronze/30 hover:border-bronze/60 transition-all duration-200 group"
@@ -311,11 +347,36 @@ export default function ContactPage() {
                           <div className="w-10 h-10 bg-bronze/20 rounded-full flex items-center justify-center group-hover:bg-bronze/30 transition-colors">
                             <PhoneIcon className="w-5 h-5 text-bronze" />
                           </div>
-                          <div>
+                          <div className="flex-1">
                             <p className="text-sm text-bronze font-medium">Téléphone</p>
-                            <p className="text-warm-white font-semibold">(450) 562-4323</p>
+                            {showPhone ? (
+                              <a 
+                                href="tel:+14505624323"
+                                className="text-warm-white font-semibold hover:text-gold transition-colors"
+                              >
+                                (450) 562-4323
+                              </a>
+                            ) : (
+                              <p className="text-warm-gray-light font-semibold">(•••) •••-••••</p>
+                            )}
                           </div>
-                        </motion.a>
+                          <button
+                            onClick={() => setShowPhone(!showPhone)}
+                            className="flex items-center gap-1 text-xs bg-bronze/10 hover:bg-bronze/20 text-bronze px-2 py-1 rounded transition-all duration-200 border border-bronze/20"
+                          >
+                            {showPhone ? (
+                              <>
+                                <EyeOff className="w-3 h-3" />
+                                Masquer
+                              </>
+                            ) : (
+                              <>
+                                <Eye className="w-3 h-3" />
+                                Afficher
+                              </>
+                            )}
+                          </button>
+                        </motion.div>
                         
                         {/* Messenger Facebook */}
                         <motion.a
@@ -423,7 +484,7 @@ export default function ContactPage() {
                           setConsentGiven(!consentGiven);
                         }}
                       >
-                        <span className="text-gold font-semibold">*</span> {translations?.contact?.form?.consent?.text1 || "J'accepte que mes données personnelles soient utilisées par LeBouillon16 pour traiter ma demande et me contacter en réponse. Ces données seront conservées pendant 2 ans maximum et ne seront jamais partagées avec des tiers. Conformément à notre"}{' '}
+                        <span className="text-gold font-semibold">*</span> {translations?.contact?.form?.consent?.text1 || "J'accepte que mes données personnelles soient utilisées par Bouillon16 pour traiter ma demande et me contacter en réponse. Ces données seront conservées pendant 2 ans maximum et ne seront jamais partagées avec des tiers. Conformément à notre"}{' '}
                         <Link 
                           href="/politique-confidentialite" 
                           className="text-gold hover:text-bronze underline transition-colors"
@@ -502,18 +563,27 @@ export default function ContactPage() {
       </section>
 
       {/* Infos Pratiques Section */}
-      <section ref={infoRef} className="section-padding bg-gradient-dark-warm">
-        <div className="container mx-auto px-4">
+      <section ref={infoRef} className="section-padding bg-gradient-dark-warm relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-mignon.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={infoInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="bg-dark-card border border-zinc-700 rounded-2xl shadow-2xl p-8 backdrop-blur-sm">
-              <h3 className="text-3xl font-bold text-warm-white mb-8 font-heading text-glow-gold text-center">
+            <div className="text-center mb-8">
+              <div className="w-16 h-16 bg-gradient-to-br from-copper to-amber-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
+                <Info className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-4xl md:text-5xl font-bold text-warm-white mb-4 font-heading text-glow-gold drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
                 {translations?.contact?.practical?.title || 'Infos Pratiques'}
               </h3>
+              <p className="text-lg text-warm-gray-light leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                Tout ce que vous devez savoir avant votre visite
+              </p>
+            </div>
+            <div className="bg-dark-card/80 border border-zinc-700 rounded-2xl shadow-2xl p-8 backdrop-blur-sm">
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {practicalInfo.map((info, index) => (

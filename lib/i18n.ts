@@ -24,6 +24,7 @@ export interface Translations {
       subtitle: string;
       cta1: string;
       cta2: string;
+      cta3: string;
     };
     philosophy: {
       title: string;
@@ -625,13 +626,14 @@ const translations: Record<Locale, Translations> = {
     },
     home: {
       hero: {
-        title: "LeBouillon16",
-        subtitle: "Une expérience gastronomique authentique au cœur de Lachute",
+        title: "Bouillon16",
+        subtitle: "Une expérience authentique au cœur de Lachute",
         cta1: "Découvrir notre menu",
-        cta2: "Nous contacter"
+        cta2: "Nous contacter",
+        cta3: "Réserver votre table"
       },
       philosophy: {
-        title: "Notre Philosophie",
+        title: "Notre Vision",
         subtitle: "L'excellence culinaire dans un cadre chaleureux",
         quality: {
           title: "Qualité",
@@ -647,7 +649,7 @@ const translations: Record<Locale, Translations> = {
         }
       },
       signature: {
-        title: "Nos Créations Signature",
+        title: "Nos Plats Inspiration",
         subtitle: "Des plats uniques créés avec passion par notre chef",
         dishes: {
           pasta: {
@@ -655,7 +657,7 @@ const translations: Record<Locale, Translations> = {
             description: "Spécialité du mercredi - Pâtes fraîches avec sauce au choix"
           },
           burger: {
-            name: "Le Burger Signature",
+            name: "Le Burger",
             description: "Burger gourmet maison avec pain artisanal et frites"
           },
           fondue: {
@@ -683,15 +685,15 @@ const translations: Record<Locale, Translations> = {
     about: {
       hero: {
         title: "Un peu de nous",
-        subtitle: "Découvrez l'histoire et la passion qui animent LeBouillon16, votre destination gastronomique au cœur de Lachute"
+        subtitle: "Découvrez l'histoire et la passion qui animent Bouillon16, votre destination gastronomique au cœur de Lachute"
       },
       introduction: {
-        title: "À Propos de LeBouillon16",
-        content: "Situé au cœur de Lachute, LeBouillon16 est né d'une passion pour la gastronomie authentique et l'art de recevoir. Notre restaurant vous invite à découvrir une cuisine raffinée dans un cadre chaleureux et sophistiqué."
+        title: "À Propos de Bouillon16",
+        content: "Situé au cœur de Lachute, Bouillon16 est né d'une passion pour la gastronomie authentique et l'art de recevoir. Notre restaurant vous invite à découvrir une cuisine raffinée dans un cadre chaleureux et sophistiqué."
       },
       concept: {
         title: "Concept culinaire & positionnement",
-        positioning: "LeBouillon16 se positionne comme une destination gastronomique incontournable à Lachute, alliant tradition culinaire et modernité.",
+        positioning: "Bouillon16 se positionne comme une destination gastronomique incontournable à Lachute, alliant tradition culinaire et modernité.",
         specialties: "Nos spécialités incluent les fondues traditionnelles, les grillades savoureuses, et une sélection de tapas créatifs qui reflètent notre approche innovante de la cuisine.",
         location: "Idéalement situé au 575 Rue Principale à Lachute, notre restaurant bénéficie d'un emplacement central accessible et accueillant.",
         service: "Nous proposons un service sur place dans notre salle à manger élégante, ainsi qu'une belle terrasse pour les repas en plein air lors des beaux jours.",
@@ -777,12 +779,12 @@ const translations: Record<Locale, Translations> = {
         address: {
           title: "Adresse",
           line1: "575 Rue Principale",
-          line2: "Lachute, QC J8H 1Y8"
+          line2: "Lachute, Qc J8H 1Y8"
         },
         contact: {
           title: "Contact",
           phone: "(450) 562-4323",
-          email: "lebouillon16@gmail.com"
+          email: "Bouillon16@gmail.com"
         },
         hours: {
           title: "Horaires d'ouverture",
@@ -818,7 +820,7 @@ const translations: Record<Locale, Translations> = {
       },
       experience: {
         title: "Envie de vivre l'expérience ?",
-        description: "Réservez dès maintenant votre table et découvrez pourquoi LeBouillon16 est devenu la référence gastronomique à Lachute. Une expérience culinaire vous attend !",
+        description: "Réservez dès maintenant votre table et découvrez pourquoi Bouillon16 est devenu la référence gastronomique à Lachute. Une expérience culinaire vous attend !",
         cta: "Réserver maintenant"
       }
     },
@@ -1043,7 +1045,7 @@ const translations: Record<Locale, Translations> = {
     },
     gallery: {
       hero: {
-        title: "Portfolio Gastronomique",
+        title: "Portfolio Culinaire",
         subtitle: "Découvrez l'univers visuel du Bouillon 16 à travers notre galerie de créations culinaires et l'expérience de nos clients"
       },
       culinary: {
@@ -1066,7 +1068,7 @@ const translations: Record<Locale, Translations> = {
         title: "Coordonnées",
         address: "575 Rue Principale, Lachute",
         phone: "(450) 562-4323",
-        email: "lebouillon16@gmail.com"
+        email: "Bouillon16@gmail.com"
       },
       hours: {
         title: "Horaires d'ouverture",
@@ -1102,7 +1104,7 @@ const translations: Record<Locale, Translations> = {
           message: "Écrivez votre message ici..."
         },
         consent: {
-          text1: "J'accepte que mes données personnelles soient utilisées par LeBouillon16 pour traiter ma demande et me contacter en réponse. Ces données seront conservées pendant 2 ans maximum et ne seront jamais partagées avec des tiers. Conformément à notre",
+          text1: "J'accepte que mes données personnelles soient utilisées par Bouillon16 pour traiter ma demande et me contacter en réponse. Ces données seront conservées pendant 2 ans maximum et ne seront jamais partagées avec des tiers. Conformément à notre",
           text2: ", vous pouvez retirer votre consentement à tout moment.",
           privacyPolicy: "politique de confidentialité",
           required: "Vous devez accepter le traitement de vos données personnelles pour envoyer ce message."
@@ -1113,7 +1115,7 @@ const translations: Record<Locale, Translations> = {
         address: {
           title: "Adresse",
           line1: "575 Rue Principale",
-          line2: "Lachute, QC J8H 1Y8"
+          line2: "Lachute, Qc J8H 1Y8"
         },
         phone: {
           title: "Téléphone",
@@ -1121,7 +1123,7 @@ const translations: Record<Locale, Translations> = {
         },
         email: {
           title: "Email",
-          address: "lebouillon16@gmail.com"
+          address: "Bouillon16@gmail.com"
         },
         hours: {
           title: "Horaires"
@@ -1150,8 +1152,8 @@ const translations: Record<Locale, Translations> = {
     },
     footer: {
       restaurant: {
-        title: "LeBouillon16",
-        description: "Une expérience gastronomique authentique au cœur de Lachute"
+        title: "Bouillon16",
+        description: "Une expérience authentique au cœur de Lachute"
       },
       quickLinks: {
         title: "Liens Rapides",
@@ -1167,13 +1169,13 @@ const translations: Record<Locale, Translations> = {
         title: "Contact",
         address: "575 Rue Principale, Lachute",
         phone: "(450) 562-4323",
-        email: "info@lebouillon16.com"
+        email: "info@Bouillon16.com"
       },
       social: {
         title: "Suivez-nous"
       },
       legal: {
-        rights: "© 2024 LeBouillon16. Tous droits réservés.",
+        rights: "© 2024 Bouillon16. Tous droits réservés.",
         privacy: "Politique de confidentialité",
         terms: "Mentions légales"
       }
@@ -1210,13 +1212,14 @@ const translations: Record<Locale, Translations> = {
     },
     home: {
       hero: {
-        title: "LeBouillon16",
-        subtitle: "An authentic gastronomic experience in the heart of Lachute",
+        title: "Bouillon16",
+        subtitle: "An authentic experience in the heart of Lachute",
         cta1: "Discover our menu",
-        cta2: "Contact us"
+        cta2: "Contact us",
+        cta3: "Reserve your table"
       },
       philosophy: {
-        title: "Our Philosophy",
+        title: "Our Vision",
         subtitle: "Culinary excellence in a warm setting",
         quality: {
           title: "Quality",
@@ -1232,7 +1235,7 @@ const translations: Record<Locale, Translations> = {
         }
       },
       signature: {
-        title: "Our Signature Creations",
+        title: "Our Inspiration Dishes",
         subtitle: "Unique dishes created with passion by our chef",
         dishes: {
           pasta: {
@@ -1240,7 +1243,7 @@ const translations: Record<Locale, Translations> = {
             description: "Wednesday special - Fresh pasta with your choice of sauce"
           },
           burger: {
-            name: "The Signature Burger",
+            name: "The Burger",
             description: "Gourmet homemade burger with artisanal bread and fries"
           },
           fondue: {
@@ -1268,15 +1271,15 @@ const translations: Record<Locale, Translations> = {
     about: {
       hero: {
         title: "A Bit About Us",
-        subtitle: "Discover the story and passion that drive LeBouillon16, your gastronomic destination in the heart of Lachute"
+        subtitle: "Discover the story and passion that drive Bouillon16, your gastronomic destination in the heart of Lachute"
       },
       introduction: {
-        title: "About LeBouillon16",
-        content: "Located in the heart of Lachute, LeBouillon16 was born from a passion for authentic gastronomy and the art of hospitality. Our restaurant invites you to discover refined cuisine in a warm and sophisticated setting."
+        title: "About Bouillon16",
+        content: "Located in the heart of Lachute, Bouillon16 was born from a passion for authentic gastronomy and the art of hospitality. Our restaurant invites you to discover refined cuisine in a warm and sophisticated setting."
       },
       concept: {
         title: "Culinary concept & positioning",
-        positioning: "LeBouillon16 positions itself as an essential gastronomic destination in Lachute, combining culinary tradition and modernity.",
+        positioning: "Bouillon16 positions itself as an essential gastronomic destination in Lachute, combining culinary tradition and modernity.",
         specialties: "Our specialties include traditional fondues, savory grills, and a selection of creative tapas that reflect our innovative approach to cuisine.",
         location: "Ideally located at 575 Rue Principale in Lachute, our restaurant benefits from a central, accessible and welcoming location.",
         service: "We offer on-site service in our elegant dining room, as well as a beautiful terrace for outdoor dining during nice weather.",
@@ -1302,7 +1305,7 @@ const translations: Record<Locale, Translations> = {
       },
       ambiance: {
         title: "Ambiance & decor",
-        description: "Our restaurant offers a muted, warm and welcoming atmosphere. The modern-rustic decor creates a perfect setting for your business meals as well as your intimate moments. Dim lighting and noble materials contribute to this unique ambiance that makes LeBouillon16's reputation."
+        description: "Our restaurant offers a muted, warm and welcoming atmosphere. The modern-rustic decor creates a perfect setting for your business meals as well as your intimate moments. Dim lighting and noble materials contribute to this unique ambiance that makes Bouillon16's reputation."
       },
       values: {
         quality: {
@@ -1323,7 +1326,7 @@ const translations: Record<Locale, Translations> = {
         events: {
           2018: {
             title: "The Birth",
-            description: "Opening of LeBouillon16 with a vision: to reinvent the art of traditional fondue."
+            description: "Opening of Bouillon16 with a vision: to reinvent the art of traditional fondue."
           },
           2019: {
             title: "Recognition",
@@ -1362,12 +1365,12 @@ const translations: Record<Locale, Translations> = {
         address: {
           title: "Address",
           line1: "575 Rue Principale",
-          line2: "Lachute, QC J8H 1Y8"
+          line2: "Lachute, Qc J8H 1Y8"
         },
         contact: {
           title: "Contact",
           phone: "(450) 562-4323",
-          email: "info@lebouillon16.com"
+          email: "info@Bouillon16.com"
         },
         hours: {
           title: "Opening hours",
@@ -1403,7 +1406,7 @@ const translations: Record<Locale, Translations> = {
       },
       experience: {
         title: "Want to live the experience?",
-        description: "Book your table now and discover why LeBouillon16 has become the gastronomic reference in Lachute. A culinary experience awaits you!",
+        description: "Book your table now and discover why Bouillon16 has become the gastronomic reference in Lachute. A culinary experience awaits you!",
         cta: "Book now"
       }
     },
@@ -1628,8 +1631,8 @@ const translations: Record<Locale, Translations> = {
     },
     gallery: {
       hero: {
-        title: "Gastronomic Portfolio",
-        subtitle: "Discover the visual universe of LeBouillon16 through our gallery of culinary creations and customer experiences"
+        title: "Culinary Portfolio",
+        subtitle: "Discover the visual universe of Bouillon16 through our gallery of culinary creations and customer experiences"
       },
       culinary: {
         title: "Culinary Gallery"
@@ -1651,7 +1654,7 @@ const translations: Record<Locale, Translations> = {
         title: "Contact Information",
         address: "575 Rue Principale, Lachute",
         phone: "(450) 562-4323",
-        email: "info@lebouillon16.com"
+        email: "info@Bouillon16.com"
       },
       hours: {
         title: "Opening Hours",
@@ -1687,7 +1690,7 @@ const translations: Record<Locale, Translations> = {
           message: "Write your message here..."
         },
         consent: {
-          text1: "I agree that my personal data may be used by LeBouillon16 to process my request and contact me in response. This data will be kept for a maximum of 2 years and will never be shared with third parties. In accordance with our",
+          text1: "I agree that my personal data may be used by Bouillon16 to process my request and contact me in response. This data will be kept for a maximum of 2 years and will never be shared with third parties. In accordance with our",
           text2: ", you can withdraw your consent at any time.",
           privacyPolicy: "privacy policy",
           required: "You must accept the processing of your personal data to send this message."
@@ -1698,7 +1701,7 @@ const translations: Record<Locale, Translations> = {
         address: {
           title: "Address",
           line1: "575 Rue Principale",
-          line2: "Lachute, QC J8H 1Y8"
+          line2: "Lachute, Qc J8H 1Y8"
         },
         phone: {
           title: "Phone",
@@ -1706,7 +1709,7 @@ const translations: Record<Locale, Translations> = {
         },
         email: {
           title: "Email",
-          address: "info@lebouillon16.com"
+          address: "info@Bouillon16.com"
         },
         hours: {
           title: "Hours"
@@ -1735,8 +1738,8 @@ const translations: Record<Locale, Translations> = {
     },
     footer: {
       restaurant: {
-        title: "LeBouillon16",
-        description: "An authentic gastronomic experience in the heart of Lachute"
+        title: "Bouillon16",
+        description: "An authentic experience in the heart of Lachute"
       },
       quickLinks: {
         title: "Quick Links",
@@ -1752,13 +1755,13 @@ const translations: Record<Locale, Translations> = {
         title: "Contact",
         address: "575 Rue Principale, Lachute",
         phone: "(450) 562-4323",
-        email: "info@lebouillon16.com"
+        email: "info@Bouillon16.com"
       },
       social: {
         title: "Follow us"
       },
       legal: {
-        rights: "© 2024 LeBouillon16. All rights reserved.",
+        rights: "© 2024 Bouillon16. All rights reserved.",
         privacy: "Privacy Policy",
         terms: "Legal Notices"
       }

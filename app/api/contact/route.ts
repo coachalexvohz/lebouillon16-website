@@ -74,8 +74,8 @@ export async function POST(request: NextRequest) {
       // Send notification email to restaurant owner
       console.log('Sending owner notification email...');
       const ownerEmailResponse = await resend.emails.send({
-        from: 'LeBouillon16 <contact@lebouillon16.ca>',
-        to: ['lebouillon16@gmail.com', 'coachalexvohz@gmail.com'], // Email du propriétaire + email de test
+        from: 'Bouillon16 <contact@Bouillon16.ca>',
+        to: ['Bouillon16@gmail.com', 'coachalexvohz@gmail.com'], // Email du propriétaire + email de test
         subject: `🍴 Nouveau message de contact: ${emailData.subject}`,
         html: generateContactEmailTemplate(emailData),
         replyTo: emailData.email
@@ -85,9 +85,9 @@ export async function POST(request: NextRequest) {
       // Send confirmation email to the client
       console.log('Sending confirmation email to client...');
       const clientEmailResponse = await resend.emails.send({
-        from: 'LeBouillon16 <noreply@lebouillon16.ca>',
+        from: 'Bouillon16 <noreply@Bouillon16.ca>',
         to: [emailData.email],
-        subject: `✅ Confirmation de votre message - LeBouillon16`,
+        subject: `✅ Confirmation de votre message - Bouillon16`,
         html: generateConfirmationEmailTemplate({
           name: emailData.name,
           subject: emailData.subject,

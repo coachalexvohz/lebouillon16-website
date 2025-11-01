@@ -66,7 +66,6 @@ export default function GalleryPage() {
     { id: 'dishes', name: translations?.gallery?.filters?.dishes || 'Nos Plats' },
     { id: 'desserts', name: 'Desserts' },
     { id: 'cocktails', name: 'Cocktails' },
-    { id: 'drinks', name: translations?.gallery?.filters?.drinks || 'Nos Boissons' },
     { id: 'bar', name: translations?.gallery?.filters?.bar || 'Bar' },
     { id: 'terrasse', name: translations?.gallery?.filters?.terrasse || 'Terrasse' },
     { id: 'atmosphere', name: translations?.gallery?.filters?.atmosphere || 'L\'Ambiance' },
@@ -182,6 +181,38 @@ export default function GalleryPage() {
       category: 'dishes',
       alt: 'Fondue spécialité du restaurant LeBouillon16'
     },
+    {
+      id: 'pates-poulet-cremeux',
+      title: 'Pâtes au Poulet Crémeux',
+      description: 'Fettuccine dans une sauce crémeuse avec médaillons de poulet grillé et fines herbes',
+      image: '/plat-pates-poulet.webp',
+      category: 'dishes',
+      alt: 'Pâtes fettuccine au poulet avec sauce crémeuse - LeBouillon16'
+    },
+    {
+      id: 'crevettes-pain-grille',
+      title: 'Crevettes sur Pain Grillé',
+      description: 'Crevettes sautées servies sur pain grillé avec burrata crémeuse et légumes frais',
+      image: '/plat-crevettes-pain.webp',
+      category: 'dishes',
+      alt: 'Crevettes sur pain grillé avec burrata - LeBouillon16'
+    },
+    {
+      id: 'champignons-farcis-gourmet',
+      title: 'Champignons Farcis Gourmet',
+      description: 'Champignons portobello farcis avec fromage fondant, accompagnés de sauce crémeuse aux noisettes',
+      image: '/plat-champignons-farcis.webp',
+      category: 'dishes',
+      alt: 'Champignons portobello farcis avec sauce crémeuse - LeBouillon16'
+    },
+    {
+      id: 'saumon-crevettes-asiatique',
+      title: 'Saumon et Crevettes à l\'Asiatique',
+      description: 'Pavé de saumon grillé et crevettes tigres sur lit de riz basmati avec légumes sautés',
+      image: '/plat-saumon-crevettes.webp',
+      category: 'dishes',
+      alt: 'Saumon et crevettes avec riz basmati - LeBouillon16'
+    },
     
     // Terrasse authentique du restaurant
     {
@@ -261,58 +292,178 @@ export default function GalleryPage() {
     
     // Ambiance et intérieur authentique
     {
-      id: 'interieur-restaurant',
-      title: 'Intérieur Restaurant Raffiné',
-      description: 'L\'atmosphère chaleureuse et raffinée de notre salle à manger',
-      image: '/interieur-restaurant.png',
+      id: 'ambiance-1',
+      title: 'Ambiance Intérieure',
+      description: 'L\'atmosphère unique de notre restaurant',
+      image: '/ambiance-1-optimized.webp',
       category: 'atmosphere',
-      alt: 'Intérieur raffiné du restaurant LeBouillon16 - Salle à manger élégante'
+      alt: 'Vue intérieure du restaurant LeBouillon16'
+    },
+    {
+      id: 'ambiance-2',
+      title: 'Salle à Manger',
+      description: 'Notre espace convivial et élégant',
+      image: '/ambiance-2-optimized.webp',
+      category: 'atmosphere',
+      alt: 'Salle à manger du restaurant LeBouillon16'
+    },
+    {
+      id: 'ambiance-3',
+      title: 'Atmosphère Chaleureuse',
+      description: 'Un cadre raffiné pour vos moments spéciaux',
+      image: '/ambiance-3-optimized.webp',
+      category: 'atmosphere',
+      alt: 'Ambiance chaleureuse du restaurant LeBouillon16'
+    },
+    {
+      id: 'ambiance-4',
+      title: 'Espace Bar',
+      description: 'Notre bar avec vue sur la terrasse',
+      image: '/ambiance-4-optimized.webp',
+      category: 'atmosphere',
+      alt: 'Bar du restaurant LeBouillon16'
+    },
+    {
+      id: 'ambiance-5',
+      title: 'Vue Intérieure',
+      description: 'Design moderne et accueillant',
+      image: '/ambiance-5-optimized.webp',
+      category: 'atmosphere',
+      alt: 'Design intérieur du restaurant LeBouillon16'
+    },
+    {
+      id: 'ambiance-6',
+      title: 'Espace Principal',
+      description: 'Notre salle principale lumineuse',
+      image: '/ambiance-6-optimized.webp',
+      category: 'atmosphere',
+      alt: 'Espace principal du restaurant LeBouillon16'
+    },
+    {
+      id: 'ambiance-7',
+      title: 'Décoration Unique',
+      description: 'Ambiance authentique et conviviale',
+      image: '/ambiance-7-optimized.webp',
+      category: 'atmosphere',
+      alt: 'Décoration unique du restaurant LeBouillon16'
+    },
+    {
+      id: 'ambiance-8',
+      title: 'Cadre Élégant',
+      description: 'Un environnement raffiné pour votre expérience culinaire',
+      image: '/ambiance-8-optimized.webp',
+      category: 'atmosphere',
+      alt: 'Cadre élégant du restaurant LeBouillon16'
+    },
+    {
+      id: 'ambiance-9',
+      title: 'Vue d\'Ensemble',
+      description: 'L\'ensemble de notre espace accueillant',
+      image: '/ambiance-9-optimized.webp',
+      category: 'atmosphere',
+      alt: 'Vue d\'ensemble du restaurant LeBouillon16'
     },
     
     // Équipe du restaurant
     {
       id: 'equipe-restaurant',
       title: 'L\'Équipe LeBouillon16',
-      description: 'Notre équipe passionnée dédiée à votre expérience gastronomique',
+      description: 'Notre équipe passionnée dédiée à votre expérience culinaire unique',
       image: '/equipe-bouillon16.jpg',
       category: 'team',
       alt: 'Équipe du restaurant LeBouillon16 - Professionnels de la gastronomie'
     },
     
-    // Section Desserts (images seront ajoutées plus tard)
+    // Section Desserts
     {
-      id: 'desserts-placeholder-1',
-      title: 'Desserts Signature',
-      description: 'Nos créations sucrées artisanales (images à venir)',
-      image: '/dessert-brownie-optimized.webp',
+      id: 'dessert-key-lime',
+      title: 'Key Lime Pie',
+      description: '',
+      image: '/dessert-key-lime-pie.jpg',
       category: 'desserts',
-      alt: 'Desserts signature de LeBouillon16'
+      alt: 'Key Lime Pie - LeBouillon16'
     },
     {
-      id: 'desserts-placeholder-2',
-      title: 'Pâtisseries Maison',
-      description: 'Desserts préparés quotidiennement par notre chef (images à venir)',
-      image: '/dessert-1.webp',
+      id: 'dessert-chocolat',
+      title: 'Gâteau au Chocolat',
+      description: '',
+      image: '/dessert-gateau-chocolat.jpg',
       category: 'desserts',
-      alt: 'Pâtisseries maison LeBouillon16'
+      alt: 'Gâteau au chocolat - LeBouillon16'
+    },
+    {
+      id: 'dessert-caramel',
+      title: 'Cheesecake au Caramel',
+      description: '',
+      image: '/dessert-cheesecake-caramel.jpg',
+      category: 'desserts',
+      alt: 'Cheesecake au caramel - LeBouillon16'
+    },
+    {
+      id: 'dessert-fraises',
+      title: 'Cheesecake aux Fraises',
+      description: '',
+      image: '/dessert-cheesecake-fraises.jpg',
+      category: 'desserts',
+      alt: 'Cheesecake aux fraises - LeBouillon16'
+    },
+    {
+      id: 'dessert-tiramisu',
+      title: 'Tiramisu aux Pommes',
+      description: '',
+      image: '/dessert-tiramisu-pomme.jpg',
+      category: 'desserts',
+      alt: 'Tiramisu aux pommes - LeBouillon16'
+    },
+    {
+      id: 'dessert-cocktail',
+      title: 'Frozen Cocktail Fraise',
+      description: '',
+      image: '/dessert-cocktail-fraise.jpg',
+      category: 'desserts',
+      alt: 'Frozen cocktail aux fraises - LeBouillon16'
     },
     
-    // Section Cocktails (images seront ajoutées plus tard)
+    // Section Cocktails
     {
-      id: 'cocktails-placeholder-1',
-      title: 'Cocktails Signature',
-      description: 'Nos créations originales de mixologie (images à venir)',
-      image: '/bar-1.jpg',
+      id: 'cocktail-margarita',
+      title: 'Margarita Maison',
+      description: '',
+      image: '/cocktail-margarita.jpg',
       category: 'cocktails',
-      alt: 'Cocktails signature de LeBouillon16'
+      alt: 'Margarita maison - LeBouillon16'
     },
     {
-      id: 'cocktails-placeholder-2',
-      title: 'Sélection Premium',
-      description: 'Cocktails classiques et modernes (images à venir)',
-      image: '/bar-2.jpg',
+      id: 'cocktail-espresso',
+      title: 'Espresso Martini',
+      description: '',
+      image: '/cocktail-espresso.jpg',
       category: 'cocktails',
-      alt: 'Sélection cocktails premium LeBouillon16'
+      alt: 'Espresso Martini - LeBouillon16'
+    },
+    {
+      id: 'cocktail-cafe',
+      title: 'Cocktail Café',
+      description: '',
+      image: '/cocktail-cafe.jpg',
+      category: 'cocktails',
+      alt: 'Cocktail café - LeBouillon16'
+    },
+    {
+      id: 'cocktail-martini',
+      title: 'Martini Classique',
+      description: '',
+      image: '/cocktail-martini.jpg',
+      category: 'cocktails',
+      alt: 'Martini classique - LeBouillon16'
+    },
+    {
+      id: 'cocktail-bonbon-christ',
+      title: 'Le Bonbon Christ',
+      description: '',
+      image: '/images/bonbon-christ.jpg',
+      category: 'cocktails',
+      alt: 'Le Bonbon Christ - LeBouillon16'
     }
   ];
 
@@ -362,17 +513,24 @@ export default function GalleryPage() {
 
 
       {/* Gallery Section */}
-      <section ref={galleryRef} className="section-padding bg-dark-secondary">
-        <div className="container mx-auto px-4">
+      <section ref={galleryRef} className="section-padding bg-gradient-dark-warm relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-fondue.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={galleryInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
+            <div className="w-16 h-16 bg-gradient-to-br from-bronze to-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
+              <Camera className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-warm-white mb-6 font-heading text-glow-gold drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
               {translations?.gallery?.culinary?.title || 'Nos Spécialités Gastronomiques'}
             </h2>
+            <p className="text-lg md:text-xl text-warm-gray-light max-w-3xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              Découvrez notre univers culinaire à travers une sélection de nos créations les plus emblématiques
+            </p>
           </motion.div>
 
           {/* Filter Buttons */}

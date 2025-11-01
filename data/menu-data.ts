@@ -162,8 +162,8 @@ export const menuData: MenuCategory[] = [
         id: 'estivale',
         name: 'Estivale',
         nameEn: 'Garden Salad',
-        description: 'Tomates - concombres - oignons rouges & olives noires',
-        descriptionEn: 'Tomatoes - cucumbers - red onions - black olives',
+        description: 'Tomates - concombres - carottes râpées - oignons rouges & olives noires',
+        descriptionEn: 'Tomatoes - cucumbers - shredded carrots - red onions - black olives',
         price: '11$ / 20$',
         isVegetarian: true,
         isGlutenFree: true
@@ -693,56 +693,74 @@ export const menuData: MenuCategory[] = [
     id: 'inspirations',
     name: 'Les Inspirations du Chef',
     nameEn: 'Chef\'s Inspirations',
-    note: 'Rendez votre plat en formule TH pour 10$:\nIncluant choix de potage ou césar(+2$) ou jardinière avec dessert spontané et café',
+    note: 'OPTIONS POUR LES INSPIRATIONS:\n• Transformer votre frite en poutine: 6$\n• Pimper votre repas avec une queue d\'homard: 15$\n• Formule TH (Table d\'hôte): 12$\n  Incluant choix de potage OU césar (+2$) OU jardinière avec dessert spontané et café',
     items: [
       {
-        id: 'nachos-asiatique',
-        name: 'Nachos Asiatique',
-        nameEn: 'Asian Nachos',
-        description: 'Nachos revisités à la sauce asiatique',
-        descriptionEn: 'Nachos revisited with Asian sauce',
-        price: '14$'
+        id: 'napoleon-homard',
+        name: 'Napoléon d\'homard',
+        nameEn: 'Lobster Napoleon',
+        description: 'Petits morceaux d\'avocats, sauce cocktail au cognac',
+        descriptionEn: 'Small pieces of avocado, cognac cocktail sauce',
+        price: '18$'
       },
       {
-        id: 'burrata-peche',
-        name: 'Burrata & pêche poêlées au miel sur tomates colorées',
-        nameEn: 'Burrata & honey-seared peach on colorful tomatoes',
-        description: 'Burrata crémeuse avec pêches caramélisées au miel',
-        descriptionEn: 'Creamy burrata with honey-caramelized peaches',
+        id: 'poires-bleu',
+        name: 'Poires au Bleu de Castello',
+        nameEn: 'Pears with Castello Blue Cheese',
+        description: '',
+        descriptionEn: '',
         price: '16$'
       },
       {
-        id: 'chateaubriand',
-        name: 'Planche Gourmande "Châteaubriand" 2 pers.',
-        nameEn: 'Gourmet "Chateaubriand" Platter for 2',
-        description: 'Filet mignon 10oz et 2 queues d\'homard - Légumes - pomme de terre - sauce aux poivres - Incluant une bouteille de vin sélection des patrons',
-        descriptionEn: '10oz filet mignon and 2 lobster tails - Vegetables - potato - pepper sauce - Including a bottle of wine (owner\'s selection)',
-        price: '160$',
+        id: 'bavette-poutine',
+        name: 'Bavette sur poutine',
+        nameEn: 'Bavette on poutine',
+        description: 'Avec fromage & cie de Grenville',
+        descriptionEn: 'With Grenville cheese & co',
+        price: '48$'
+      },
+      {
+        id: 'bouchees-poulet',
+        name: 'Bouchées de poulet au beurre et ail',
+        nameEn: 'Garlic butter chicken bites',
+        description: 'Servi avec pâtes crémeuses au parmesan',
+        descriptionEn: 'Served with creamy parmesan pasta',
+        price: '44$'
+      },
+      {
+        id: 'pave-saumon',
+        name: 'Pavé de saumon & 3 crevettes poêlées',
+        nameEn: 'Salmon fillet & 3 pan-seared shrimp',
+        description: 'Sauce pistache miel & ail',
+        descriptionEn: 'Pistachio honey & garlic sauce',
+        price: '43$'
+      },
+      {
+        id: 'filet-homard',
+        name: 'Filet mignon Angus & queue d\'homard',
+        nameEn: 'Angus filet mignon & lobster tail',
+        description: '',
+        descriptionEn: '',
+        price: '56$',
         isSignature: true
       },
       {
-        id: 'morue-islande',
-        name: 'Longe de morue fraîche d\'Islande et pomme Boréal',
-        nameEn: 'Fresh Iceland cod loin and Boreal apple',
-        description: 'Morue fraîche d\'Islande avec garniture pomme Boréal',
-        descriptionEn: 'Fresh Iceland cod with Boreal apple garnish',
-        price: '35$'
+        id: 'contre-filet',
+        name: 'Contre-filet Angus vieilli à sec sur place',
+        nameEn: 'Dry-aged Angus striploin',
+        description: '',
+        descriptionEn: '',
+        price: '58$',
+        isSignature: true
       },
       {
-        id: 'jarret-agneau',
-        name: 'Jarret d\'agneau braisé création Le16',
-        nameEn: 'Braised lamb shank Le16 creation',
-        description: 'Jarret d\'agneau braisé selon la création spéciale du chef',
-        descriptionEn: 'Braised lamb shank according to the chef\'s special creation',
-        price: '42$'
-      },
-      {
-        id: 'crevettes-bruschetta',
-        name: 'Crevettes papillons grillées bruschetta & Mozzarella',
-        nameEn: 'Grilled butterfly shrimp bruschetta & Mozzarella',
-        description: 'Crevettes papillons grillées avec bruschetta et mozzarella',
-        descriptionEn: 'Grilled butterfly shrimp with bruschetta and mozzarella',
-        price: '43$'
+        id: 'burrata-peches',
+        name: 'Burrata et pêches grillées',
+        nameEn: 'Burrata and grilled peaches',
+        description: 'Crémeuse burrata italienne servie avec pêches caramélisées, réduction balsamique, basilic frais et noix concassées',
+        descriptionEn: 'Creamy Italian burrata served with caramelized peaches, balsamic reduction, fresh basil and crushed walnuts',
+        price: '22$',
+        isVegetarian: true
       }
     ]
   },

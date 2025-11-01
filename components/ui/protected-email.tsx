@@ -16,7 +16,7 @@ interface ProtectedEmailProps {
 }
 
 export function ProtectedEmail({ 
-  email = "lebouillon16@gmail.com",
+  email = "Bouillon16@gmail.com",
   variant = 'button',
   showIcon = true,
   className = "",

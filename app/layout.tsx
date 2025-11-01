@@ -7,6 +7,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { LoadingWrapper } from "@/components/ui/loading-wrapper";
 import { CookieConsent } from "@/components/cookie-consent";
+import ChatBot from "@/components/ChatBot";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -18,25 +19,25 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | LeBouillon16',
-    default: "LeBouillon16 - Restaurant Gastronomique à Lachute | Fondue & Cuisine Raffinée"
+    template: '%s | Bouillon16',
+    default: "Bouillon16 - Restaurant Gastronomique à Lachute | Fondue & Cuisine Raffinée"
   },
-  description: "Découvrez LeBouillon16, restaurant gastronomique au cœur de Lachute. Spécialistes de la fondue traditionnelle, grillades premium et cuisine raffinée. Terrasse, ambiance chaleureuse. Réservations: (450) 562-4323",
-  keywords: "restaurant Lachute, fondue traditionnelle, cuisine gastronomique, terrasse Lachute, restaurant québécois, spécialités fondues, grillades premium, LeBouillon16, restaurant 575 rue Principale, Laurentides, restaurant avec terrasse, cuisine raffinée Quebec",
-  authors: [{ name: "LeBouillon16", url: "https://lebouillon16.com" }],
-  creator: "LeBouillon16",
-  publisher: "LeBouillon16",
-  applicationName: "LeBouillon16",
+  description: "Découvrez Bouillon16, restaurant gastronomique au cœur de Lachute. Spécialistes de la fondue traditionnelle, grillades premium et cuisine raffinée. Terrasse, ambiance chaleureuse. Réservations: (450) 562-4323",
+  keywords: "restaurant Lachute, fondue traditionnelle, cuisine gastronomique, terrasse Lachute, restaurant québécois, spécialités fondues, grillades premium, Bouillon16, restaurant 575 rue Principale, Laurentides, restaurant avec terrasse, cuisine raffinée Quebec",
+  authors: [{ name: "Bouillon16", url: "https://Bouillon16.com" }],
+  creator: "Bouillon16",
+  publisher: "Bouillon16",
+  applicationName: "Bouillon16",
   referrer: "origin-when-cross-origin",
   formatDetection: {
     email: false,
     address: true,
     telephone: true,
   },
-  metadataBase: new URL('https://lebouillon16.com'),
+  metadataBase: new URL('https://Bouillon16.com'),
   // Force HTTPS canonical URLs
   other: {
-    'canonical': 'https://lebouillon16.com',
+    'canonical': 'https://Bouillon16.com',
   },
   // Add icons/favicon configuration
   icons: {
@@ -64,32 +65,32 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_CA',
     alternateLocale: ['en_CA'],
-    url: 'https://lebouillon16.com',
-    siteName: 'LeBouillon16',
-    title: 'LeBouillon16 - Restaurant Gastronomique à Lachute',
+    url: 'https://Bouillon16.com',
+    siteName: 'Bouillon16',
+    title: 'Bouillon16 - Restaurant Gastronomique à Lachute',
     description: 'Spécialistes de la fondue traditionnelle et cuisine raffinée au cœur de Lachute. Terrasse, ambiance chaleureuse.',
     images: [
       {
         url: '/logo-og.png',
         width: 1200,
         height: 630,
-        alt: 'LeBouillon16 - Restaurant Gastronomique à Lachute | Grillades, Fondues, Tapas',
+        alt: 'Bouillon16 - Restaurant Gastronomique à Lachute | Grillades, Fondues, Tapas',
         type: 'image/png',
       },
       {
         url: '/terrasse-drone-bouillon16-optimized.webp',
         width: 1200,
         height: 630,
-        alt: 'Terrasse du restaurant LeBouillon16 à Lachute',
+        alt: 'Terrasse du restaurant Bouillon16 à Lachute',
         type: 'image/webp',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@LeBouillon16',
-    creator: '@LeBouillon16',
-    title: 'LeBouillon16 - Restaurant Gastronomique à Lachute',
+    site: '@Bouillon16',
+    creator: '@Bouillon16',
+    title: 'Bouillon16 - Restaurant Gastronomique à Lachute',
     description: 'Spécialistes de la fondue traditionnelle et cuisine raffinée au cœur de Lachute',
     images: ['/logo-og.png'],
   },
@@ -125,11 +126,11 @@ export default function RootLayout({
       <head>
         {/* Force HTTPS */}
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-        <link rel="canonical" href="https://lebouillon16.com" />
+        <link rel="canonical" href="https://Bouillon16.com" />
         
         {/* DNS Prefetch for better performance */}
-        <link rel="dns-prefetch" href="https://lebouillon16.com" />
-        <link rel="preconnect" href="https://lebouillon16.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://Bouillon16.com" />
+        <link rel="preconnect" href="https://Bouillon16.com" crossOrigin="" />
         
         {/* Google Search Console Verification */}
         <meta name="google-site-verification" content="C8jB1_JCvfoWzbZd0yldRz80eJjas9sNw8pf-2ucW0I" />
@@ -191,14 +192,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Restaurant",
-              "@id": "https://lebouillon16.com/#restaurant",
-              "name": "LeBouillon16",
+              "@id": "https://Bouillon16.com/#restaurant",
+              "name": "Bouillon16",
               "alternateName": "Bouillon 16",
               "description": "Restaurant gastronomique spécialisé dans la fondue traditionnelle et la cuisine raffinée, situé au cœur de Lachute avec une magnifique terrasse.",
-              "url": "https://lebouillon16.com",
+              "url": "https://Bouillon16.com",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://lebouillon16.com/logo-512.png",
+                "url": "https://Bouillon16.com/logo-512.png",
                 "width": "512",
                 "height": "512"
               },
@@ -208,7 +209,7 @@ export default function RootLayout({
                 "https://placehold.co/1200x600/e2e8f0/1e293b?text=Photo_of_the_Bouillon16_team"
               ],
               "telephone": "+1-450-562-4323",
-              "email": "lebouillon16@gmail.com",
+              "email": "Bouillon16@gmail.com",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "575 Rue Principale",
@@ -254,8 +255,8 @@ export default function RootLayout({
               "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Interac"],
               "hasMenu": {
                 "@type": "Menu",
-                "@id": "https://lebouillon16.com/menu",
-                "name": "Menu LeBouillon16",
+                "@id": "https://Bouillon16.com/menu",
+                "name": "Menu Bouillon16",
                 "description": "Notre carte complète avec fondues, grillades et spécialités de la maison"
               },
               "amenityFeature": [
@@ -328,6 +329,7 @@ export default function RootLayout({
               }}
             />
             <CookieConsent />
+            <ChatBot />
           </LoadingWrapper>
         </LanguageProvider>
       </body>

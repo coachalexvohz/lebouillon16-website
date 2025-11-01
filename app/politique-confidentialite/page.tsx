@@ -35,12 +35,12 @@ export default function PolitiqueConfidentialite() {
             <h2 className="text-2xl font-bold text-gold mb-6">1. Responsable du traitement</h2>
             <div className="bg-gray-900/30 p-6 rounded-lg border border-gray-800/50">
               <p className="text-gray-300 mb-0">
-                <strong className="text-gold">LeBouillon16</strong><br />
+                <strong className="text-gold">Bouillon16</strong><br />
                 575 Rue Principale<br />
                 Lachute, QC J8H 1Y8, Canada<br />
                 Téléphone : (450) 562-4323<br />
                 Email : <ProtectedEmail 
-                  email="lebouillon16@gmail.com"
+                  email="Bouillon16@gmail.com"
                   variant="inline"
                   buttonText="Cliquez pour voir l'email"
                   className="text-gold"
@@ -133,7 +133,7 @@ export default function PolitiqueConfidentialite() {
                 <p className="text-gray-300">
                   <strong className="text-gold">Pour exercer vos droits :</strong><br />
                   Contactez-nous à <ProtectedEmail 
-                    email="lebouillon16@gmail.com"
+                    email="Bouillon16@gmail.com"
                     variant="inline"
                     buttonText="cette adresse email"
                     className="text-bronze"
@@ -185,7 +185,7 @@ export default function PolitiqueConfidentialite() {
                   <strong className="text-gold">Email :</strong> 
                   <span className="ml-2">
                     <ProtectedEmail 
-                      email="lebouillon16@gmail.com"
+                      email="Bouillon16@gmail.com"
                       variant="inline"
                       buttonText="Cliquez pour voir l'email"
                       className="text-bronze"

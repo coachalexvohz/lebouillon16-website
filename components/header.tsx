@@ -30,11 +30,10 @@ export function Header() {
 
   const navigation = [
     { name: translations?.nav?.home || 'Accueil', href: '/', animation: 'sparkle' as const },
-    { name: translations?.nav?.about || 'À Propos', href: '/about', animation: 'bubbles' as const },
     { name: translations?.nav?.services || 'Offre & Services', href: '/services', animation: 'golden-drip' as const },
     { name: translations?.nav?.menu || 'Menu', href: '/menu', animation: 'sparkle' as const },
     { name: translations?.nav?.gallery || 'Galerie', href: '/gallery', animation: 'bubbles' as const },
-    { name: 'Témoignages', href: '/temoignages', animation: 'golden-drip' as const },
+    { name: 'Expérience clients', href: '/temoignages', animation: 'golden-drip' as const },
     { name: translations?.nav?.faq || 'FAQ', href: '/faq', animation: 'sparkle' as const },
     { name: translations?.nav?.contact || 'Contact', href: '/contact', animation: 'bubbles' as const },
   ];
@@ -61,10 +60,10 @@ export function Header() {
                 className="flex flex-col items-start"
               >
                 <div className="text-3xl md:text-4xl font-bold brand-title group-hover:scale-105 transition-transform duration-300">
-                  LeBouillon16
+                  Bouillon16
                 </div>
-                <div className="brand-subtitle text-sm hidden md:block">
-                  Restaurant Gastronomique
+                <div className="text-xs text-amber-300/80 hidden md:block mt-1">
+                  Fondues-Grillades-Tapas
                 </div>
               </motion.div>
             </Link>
@@ -185,10 +184,10 @@ export function Header() {
                 <div className="flex items-center gap-3">
                   <div className="flex flex-col">
                     <h3 className="text-xl font-bold brand-title">
-                      LeBouillon16
+                      Bouillon16
                     </h3>
-                    <span className="brand-subtitle text-xs">
-                      Restaurant Gastronomique
+                    <span className="text-xs text-amber-300/70 mt-0.5">
+                      Fondues-Grillades-Tapas
                     </span>
                   </div>
                 </div>

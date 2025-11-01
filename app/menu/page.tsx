@@ -5,9 +5,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/language-context';
 import { useInView } from 'react-intersection-observer';
-import { Button } from '@/components/ui/button';
 import { menuData, MenuCategory } from '@/data/menu-data';
-import { Download, Star, Utensils, Leaf, Wheat } from 'lucide-react';
+import { Star, Utensils, Leaf, Wheat } from 'lucide-react';
 
 export default function MenuPage() {
   const { translations, locale } = useLanguage();
@@ -22,14 +21,6 @@ export default function MenuPage() {
     threshold: 0.2,
     triggerOnce: true
   });
-
-  const handleDownloadPDF = () => {
-    // Télécharger le PDF du menu
-    const link = document.createElement('a');
-    link.href = '/Menu-LeBouillon16-Octobre.pdf';
-    link.download = 'Menu-LeBouillon16-Octobre.pdf';
-    link.click();
-  };
 
   const getCategoryName = (category: MenuCategory) => {
     return locale === 'en' ? category.nameEn : category.name;
@@ -55,30 +46,17 @@ export default function MenuPage() {
             <h1 className="text-5xl md:text-6xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
               {translations?.menu?.title || 'Menu Gastronomique - Fondues & Spécialités'}
             </h1>
-            <p className="text-xl md:text-2xl text-warm-gray-light max-w-3xl mx-auto leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-warm-gray-light max-w-3xl mx-auto leading-relaxed">
               {translations?.menu?.subtitle || 'Découvrez nos délicieuses créations culinaires'}
             </p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <Button 
-                onClick={handleDownloadPDF}
-                size="lg"
-                className="bg-gradient-gold-warm hover:bg-gradient-bronze-warm text-dark-primary px-8 py-4 text-lg font-semibold btn-hover-glow focus-gold"
-              >
-                <Download className="mr-2 w-5 h-5" />
-                {translations?.menu?.downloadPdf || 'Télécharger le Menu PDF'}
-              </Button>
-            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Menu Section */}
-      <section ref={menuRef} className="section-padding bg-gradient-dark-warm">
-        <div className="container mx-auto px-4">
+      <section ref={menuRef} className="section-padding bg-gradient-dark-warm relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-barby.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           {/* Category Tabs */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -19,9 +19,14 @@ import {
   Crown,
   Heart,
   CheckCircle,
-  XCircle
+  XCircle,
+  ArrowRight,
+  Star,
+  ChefHat
 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { menuData } from '@/data/menu-data';
 
 export default function ServicesPage() {
   const { translations } = useLanguage();
@@ -37,6 +42,11 @@ export default function ServicesPage() {
   });
 
   const [menusRef, menusInView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  const [inspirationRef, inspirationInView] = useInView({
     threshold: 0.2,
     triggerOnce: true
   });
@@ -57,49 +67,58 @@ export default function ServicesPage() {
       title: "Salle à Manger",
       description: "Service traditionnel dans un cadre élégant et chaleureux",
       available: true,
-      color: "from-gold to-bronze"
+      color: "from-gold to-bronze",
+      clickable: false
     },
     {
       icon: Wine,
       title: "Bar & Carte des Vins",
       description: "Sélection premium de vins et cocktails signature",
       available: true,
-      color: "from-bronze to-copper"
+      color: "from-bronze to-copper",
+      clickable: false
     },
     {
       icon: Coffee,
       title: "Terrasse",
       description: "Espace extérieur avec vue panoramique",
       available: true,
-      color: "from-copper to-gold"
+      color: "from-copper to-gold",
+      clickable: false
     },
     {
       icon: Calendar,
       title: "Privatisation / Événements",
       description: "Organisation d'événements privés et professionnels",
       available: true,
-      color: "from-gold to-bronze"
+      color: "from-gold to-bronze",
+      clickable: true,
+      link: "/contact#contact-form"
     },
     {
       icon: UtensilsCrossed,
       title: "Service Traiteur",
       description: "Prestations culinaires pour vos événements",
       available: true,
-      color: "from-bronze to-copper"
+      color: "from-bronze to-copper",
+      clickable: true,
+      link: "/contact#contact-form"
     },
     {
       icon: ShoppingBag,
       title: "À Emporter",
       description: "Commandes à emporter pour déguster chez vous",
       available: true,
-      color: "from-copper to-gold"
+      color: "from-copper to-gold",
+      clickable: false
     },
     {
       icon: Sparkles,
       title: "Menu Saisonnier / Dégustation",
       description: "Expériences culinaires exclusives selon les saisons",
       available: true,
-      color: "from-gold to-bronze"
+      color: "from-gold to-bronze",
+      clickable: false
     }
   ];
 
@@ -108,7 +127,7 @@ export default function ServicesPage() {
       title: "Menu Varié",
       description: "Notre carte principale avec une sélection de plats pour tous les goûts",
       icon: Utensils,
-      features: ["Entrées gastronomiques", "Plats signature", "Desserts maison", "Menu enfants -12 ans"]
+      features: ["Entrées élaborées", "Plats inspiration", "Desserts maison", "Menu enfants -12 ans"]
     },
     {
       title: "Menu Inspiration",
@@ -124,9 +143,9 @@ export default function ServicesPage() {
     },
     {
       title: "Menu Événementiel",
-      description: "Prestations sur mesure pour vos occasions spéciales",
+      description: "Sélection sur mesure pour vos occasions spéciales",
       icon: Calendar,
-      features: ["Buffets personnalisés", "Service à l'assiette", "Cocktail dinatoire", "Animation culinaire"]
+      features: ["Buffets personnalisés", "Service à l'assiette", "Cocktail dinatoire", "Levée de fond"]
     }
   ];
 
@@ -150,7 +169,7 @@ export default function ServicesPage() {
         <div 
           className="absolute inset-0 md:hidden"
           style={{
-            backgroundImage: 'url(/image-background-services-mobile.jpg)',
+            backgroundImage: 'url(/services-hero.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             backgroundAttachment: 'fixed',
@@ -162,8 +181,7 @@ export default function ServicesPage() {
         <div 
           className="absolute inset-0 hidden md:block bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: 'url(/services-desktop-bg-optimized.webp)',
-            transform: 'rotate(180deg)'
+            backgroundImage: 'url(/services-hero.jpg)'
           }}
         ></div>
         
@@ -190,9 +208,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Disponibles */}
-      <section ref={servicesRef} className="section-padding bg-gradient-dark-warm">
-        <div className="container mx-auto px-4">
+      {/* Services Disponibles - Section masquée visuellement mais conservée pour le référencement SEO */}
+      <section ref={servicesRef} className="section-padding bg-gradient-dark-warm relative overflow-hidden hidden" aria-hidden="true">
+        <div className="absolute inset-0 bg-[url('/bg-planche.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={servicesInView ? { opacity: 1, y: 0 } : {}}
@@ -210,14 +229,8 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
-              return (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={servicesInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300 group"
-                >
+              const CardContent = (
+                <>
                   <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className="w-8 h-8 text-dark-primary" />
                   </div>
@@ -227,9 +240,42 @@ export default function ServicesPage() {
                     </h3>
                     <CheckCircle className="w-5 h-5 text-green-400" />
                   </div>
-                  <p className="text-warm-gray-light leading-relaxed text-center">
+                  <p className="text-warm-gray-light leading-relaxed text-center mb-4">
                     {service.description}
                   </p>
+                  {service.clickable && (
+                    <div className="mt-4 pt-4 border-t border-zinc-600/50">
+                      <div className="flex items-center justify-center gap-2 text-amber-300 text-sm font-medium group-hover:text-amber-200 transition-colors">
+                        <span>Besoin d'information ?</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  )}
+                </>
+              );
+
+              return service.clickable ? (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                >
+                  <Link href={service.link || '#'}>
+                    <div className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300 group cursor-pointer hover:border-amber-500/50 hover:scale-105">
+                      {CardContent}
+                    </div>
+                  </Link>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={servicesInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  className="bg-dark-card border border-zinc-700 rounded-2xl p-8 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300 group"
+                >
+                  {CardContent}
                 </motion.div>
               );
             })}
@@ -259,7 +305,8 @@ export default function ServicesPage() {
 
       {/* Nos Menus */}
       <section ref={menusRef} className="section-padding bg-dark-secondary relative overflow-hidden">
-        <div className="container mx-auto px-4">
+        <div className="absolute inset-0 bg-[url('/bg-truite.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={menusInView ? { opacity: 1, y: 0 } : {}}
@@ -311,9 +358,125 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Menu Inspiration du Chef */}
+      <section ref={inspirationRef} className="section-padding bg-gradient-dark-warm relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/fondue-hero-mobile.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={inspirationInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <ChefHat className="w-12 h-12 text-gold" />
+              <h2 className="text-4xl md:text-5xl font-bold text-warm-white font-heading text-glow-gold">
+                Les Inspirations du Chef
+              </h2>
+              <ChefHat className="w-12 h-12 text-gold" />
+            </div>
+            <p className="text-xl text-warm-gray-light max-w-3xl mx-auto leading-relaxed">
+              Des créations uniques élaborées avec passion par notre chef
+            </p>
+          </motion.div>
+
+          {/* Options Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inspirationInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="bg-dark-card border-2 border-gold/30 rounded-2xl p-8 mb-12 shadow-2xl backdrop-blur-sm"
+          >
+            <h3 className="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
+              <Sparkles className="w-6 h-6" />
+              Options pour les Inspirations
+            </h3>
+            <p className="text-warm-gray-light text-sm italic mb-6">
+              Selon disponibilité ou jusqu'à épuisement de stock
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-bronze mt-1 flex-shrink-0" />
+                <div>
+                  <p className="text-warm-white font-semibold mb-1">Transformer votre frite en poutine</p>
+                  <p className="text-gold text-xl font-bold">6$</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-bronze mt-1 flex-shrink-0" />
+                <div>
+                  <p className="text-warm-white font-semibold mb-1">Pimper votre repas avec une queue d'homard</p>
+                  <p className="text-gold text-xl font-bold">15$</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-bronze mt-1 flex-shrink-0" />
+                <div>
+                  <p className="text-warm-white font-semibold mb-1">Formule TH (Table d'hôte)</p>
+                  <p className="text-gold text-xl font-bold mb-2">12$</p>
+                  <p className="text-sm text-warm-gray-light">Incluant choix de potage OU césar (+2$) OU jardinière avec dessert spontané et café</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Menu Items */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {menuData.find(cat => cat.id === 'inspirations')?.items.map((dish, index) => (
+              <motion.div
+                key={dish.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inspirationInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`bg-dark-card border ${dish.isSignature ? 'border-gold' : 'border-zinc-700'} rounded-2xl p-6 shadow-2xl backdrop-blur-sm hover:shadow-3xl transition-all duration-300 hover:border-gold/50 group`}
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="text-xl font-bold text-warm-white group-hover:text-gold transition-colors duration-300">
+                        {dish.name}
+                      </h3>
+                      {dish.isSignature && (
+                        <Star className="w-5 h-5 text-gold fill-gold" />
+                      )}
+                    </div>
+                    {dish.description && (
+                      <p className="text-warm-gray-light text-sm leading-relaxed">
+                        {dish.description}
+                      </p>
+                    )}
+                  </div>
+                  <div className="ml-4 flex-shrink-0">
+                    <span className="text-2xl font-bold text-gold">{dish.price}</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inspirationInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <Link 
+              href="/menu"
+              className="inline-flex items-center gap-2 bg-gradient-gold-warm hover:bg-gradient-bronze-warm text-dark-primary px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-2xl hover:shadow-3xl btn-hover-glow"
+            >
+              <Utensils className="w-5 h-5" />
+              Découvrir notre menu complet
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Allergies & Contraintes */}
-      <section ref={allergiesRef} className="section-padding bg-gradient-dark-warm">
-        <div className="container mx-auto px-4">
+      <section ref={allergiesRef} className="section-padding bg-dark-secondary relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-tataki.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={allergiesInView ? { opacity: 1, y: 0 } : {}}
@@ -395,7 +558,8 @@ export default function ServicesPage() {
 
       {/* Capacité d'Accueil */}
       <section ref={capacityRef} className="section-padding bg-dark-secondary relative overflow-hidden">
-        <div className="container mx-auto px-4">
+        <div className="absolute inset-0 bg-[url('/bg-bavette.png')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={capacityInView ? { opacity: 1, y: 0 } : {}}

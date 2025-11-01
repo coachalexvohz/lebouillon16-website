@@ -13,7 +13,7 @@ export function generateConfirmationEmailTemplate(data: ConfirmationEmailData): 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation de votre message - LeBouillon16</title>
+    <title>Confirmation de votre message - Bouillon16</title>
     <style>
         * {
             margin: 0;
@@ -270,7 +270,7 @@ export function generateConfirmationEmailTemplate(data: ConfirmationEmailData): 
             </div>
             
             <div class="greeting">
-                Nous avons bien reçu votre message et nous vous remercions de votre intérêt pour LeBouillon16.
+                Nous avons bien reçu votre message et nous vous remercions de votre intérêt pour Bouillon16.
             </div>
             
             <div class="message-summary">
@@ -310,7 +310,7 @@ export function generateConfirmationEmailTemplate(data: ConfirmationEmailData): 
                 </div>
                 <div class="contact-row">
                     <span class="contact-icon">🌐</span>
-                    lebouillon16.ca
+                    Bouillon16.ca
                 </div>
                 <div class="contact-row">
                     <span class="contact-icon">📱</span>

@@ -11,11 +11,12 @@ import { useState } from 'react';
 export function Footer() {
   const { translations } = useLanguage();
   const [showEmail, setShowEmail] = useState(false);
+  const [showPhone, setShowPhone] = useState(false);
 
   const socialLinks = [
     {
       name: 'TikTok',
-      href: 'https://www.tiktok.com/@lebouillon16',
+      href: 'https://www.tiktok.com/@Bouillon16',
       icon: Music4,
       color: 'hover:bg-copper/20 hover:text-copper',
     },
@@ -32,11 +33,6 @@ export function Footer() {
       name: translations?.nav?.menu || 'Menu',
       href: '/menu',
       icon: Menu,
-    },
-    {
-      name: translations?.nav?.about || 'À Propos',
-      href: '/about',
-      icon: Home,
     },
     {
       name: translations?.nav?.gallery || 'Galerie',
@@ -100,7 +96,7 @@ export function Footer() {
                   <div>
                     <p className="text-sm text-gray-300 leading-relaxed">
                       575 Rue Principale<br />
-                      Lachute, QC, Canada<br />
+                      Lachute, Qc, Canada<br />
                       J8H 1Y8
                     </p>
                   </div>
@@ -114,12 +110,34 @@ export function Footer() {
                   <div className="flex-shrink-0 w-10 h-10 bg-bronze/10 rounded-lg flex items-center justify-center group-hover:bg-bronze/20 transition-colors duration-200">
                     <Phone className="w-5 h-5 text-bronze" />
                   </div>
-                  <a 
-                    href="tel:+14505624323"
-                    className="text-sm text-gray-300 hover:text-gold transition-colors duration-200"
-                  >
-                    (450) 562-4323
-                  </a>
+                  <div className="flex items-center gap-2">
+                    {showPhone ? (
+                      <a 
+                        href="tel:+14505624323"
+                        className="text-sm text-gray-300 hover:text-gold transition-colors duration-200"
+                      >
+                        (450) 562-4323
+                      </a>
+                    ) : (
+                      <span className="text-sm text-gray-400">(•••) •••-••••</span>
+                    )}
+                    <button
+                      onClick={() => setShowPhone(!showPhone)}
+                      className="flex items-center gap-1 text-xs bg-bronze/10 hover:bg-bronze/20 text-bronze px-2 py-1 rounded transition-all duration-200 border border-bronze/20"
+                    >
+                      {showPhone ? (
+                        <>
+                          <EyeOff className="w-3 h-3" />
+                          Masquer
+                        </>
+                      ) : (
+                        <>
+                          <Eye className="w-3 h-3" />
+                          Afficher
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </motion.div>
                 
                 <motion.div 
@@ -133,10 +151,10 @@ export function Footer() {
                   <div className="flex items-center gap-2">
                     {showEmail ? (
                       <a 
-                        href="mailto:lebouillon16@gmail.com"
+                        href="mailto:Bouillon16@gmail.com"
                         className="text-sm text-gray-300 hover:text-gold transition-colors duration-200"
                       >
-                        lebouillon16@gmail.com
+                        Bouillon16@gmail.com
                       </a>
                     ) : (
                       <span className="text-sm text-gray-400">••••••••@••••••••</span>
@@ -344,10 +362,10 @@ export function Footer() {
               {/* Copyright */}
               <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                 <p className="text-sm text-gray-500 opacity-80">
-                  {translations?.footer?.legal?.rights || '© 2024 LeBouillon16. Tous droits réservés.'}
+                  {translations?.footer?.legal?.rights || '© 2024 Bouillon16. Tous droits réservés.'}
                 </p>
                 <p className="text-xs text-gray-600 opacity-60">
-                  {translations?.footer?.restaurant?.description || 'Une expérience gastronomique authentique au cœur de Lachute'}
+                  {translations?.footer?.restaurant?.description || 'Une expérience culinaire unique authentique au cœur de Lachute'}
                 </p>
               </div>
             </div>

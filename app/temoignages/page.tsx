@@ -146,18 +146,25 @@ export default function TestimonialsPage() {
   return (
     <div className="min-h-screen bg-gradient-dark-warm">
       {/* Hero Section */}
-      <section className="relative testimonials-bg section-padding bg-gradient-to-b from-dark-primary via-dark-secondary to-dark-primary">
-        <div className="container mx-auto px-4 relative z-10">
+      <section 
+        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: 'url(/about-header-design-optimized.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 overlay-gradient-light" />
+        <div className="container mx-auto px-4 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16 bg-black/30 backdrop-blur-sm rounded-2xl p-8 mx-auto max-w-4xl"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-warm-white mb-6 font-heading text-glow-gold">
-              Témoignages Clients
+              Expérience Clients
             </h1>
-            <p className="text-xl text-warm-gray-light max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-warm-gray-light max-w-4xl mx-auto leading-relaxed">
               Découvrez ce que nos clients disent de leur expérience au Bouillon 16
             </p>
           </motion.div>
@@ -165,8 +172,9 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Testimonials Grid */}
-      <section ref={testimonialRef} className="section-padding bg-gradient-to-b from-dark-secondary via-dark-primary to-dark-secondary">
-        <div className="container mx-auto px-4">
+      <section ref={testimonialRef} className="section-padding bg-gradient-to-b from-dark-secondary via-dark-primary to-dark-secondary relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-fondue-b16.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div

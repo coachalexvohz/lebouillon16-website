@@ -53,14 +53,14 @@ export default function MentionsLegales() {
             <h2 className="text-2xl font-bold text-gold mb-6">1. Éditeur du site</h2>
             <div className="bg-gray-900/30 p-6 rounded-lg border border-gray-800/50">
               <p className="text-gray-300 mb-0">
-                <strong className="text-gold">LeBouillon16</strong><br />
+                <strong className="text-gold">Bouillon16</strong><br />
                 Restaurant gastronomique<br />
                 575 Rue Principale<br />
                 Lachute, QC J8H 1Y8, Canada<br />
                 <br />
                 <strong className="text-bronze">Téléphone :</strong> <a href="tel:+14505624323" className="text-gold hover:text-bronze transition-colors underline">(450) 562-4323</a><br />
                 <strong className="text-bronze">Email :</strong> <ProtectedEmail 
-                  email="lebouillon16@gmail.com"
+                  email="Bouillon16@gmail.com"
                   variant="inline"
                   buttonText="Cliquez pour voir l'email"
                   className="text-gold"
@@ -74,7 +74,7 @@ export default function MentionsLegales() {
             <h2 className="text-2xl font-bold text-gold mb-6">2. Directeur de la publication</h2>
             <div className="bg-gray-900/30 p-6 rounded-lg border border-gray-800/50">
               <p className="text-gray-300">
-                Le directeur de la publication est le représentant légal de LeBouillon16.
+                Le directeur de la publication est le représentant légal de Bouillon16.
               </p>
             </div>
           </section>
@@ -97,8 +97,8 @@ export default function MentionsLegales() {
                 L'ensemble de ce site relève de la législation canadienne et internationale sur le droit d'auteur et la propriété intellectuelle.
               </p>
               <ul className="text-gray-300 space-y-2">
-                <li>• <strong className="text-bronze">Contenu :</strong> Tous les textes, images, photos, vidéos et éléments graphiques sont la propriété exclusive de LeBouillon16</li>
-                <li>• <strong className="text-bronze">Marques :</strong> Le nom "LeBouillon16" et le logo sont des marques déposées</li>
+                <li>• <strong className="text-bronze">Contenu :</strong> Tous les textes, images, photos, vidéos et éléments graphiques sont la propriété exclusive de Bouillon16</li>
+                <li>• <strong className="text-bronze">Marques :</strong> Le nom "Bouillon16" et le logo sont des marques déposées</li>
                 <li>• <strong className="text-bronze">Reproduction :</strong> Toute reproduction, même partielle, est interdite sans autorisation écrite préalable</li>
               </ul>
             </div>
@@ -141,7 +141,7 @@ export default function MentionsLegales() {
             <h2 className="text-2xl font-bold text-gold mb-6">7. Limitation de responsabilité</h2>
             <div className="bg-gray-900/30 p-6 rounded-lg border border-gray-800/50">
               <p className="text-gray-300 mb-4">
-                LeBouillon16 s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site.
+                Bouillon16 s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site.
               </p>
               <ul className="text-gray-300 space-y-2">
                 <li>• <strong className="text-bronze">Contenu :</strong> Les informations sont données à titre indicatif et peuvent être modifiées sans préavis</li>
@@ -174,7 +174,7 @@ export default function MentionsLegales() {
                   <strong className="text-gold">Email :</strong> 
                   <span className="ml-2">
                     <ProtectedEmail 
-                      email="lebouillon16@gmail.com"
+                      email="Bouillon16@gmail.com"
                       variant="inline"
                       buttonText="Cliquez pour voir l'email"
                       className="text-bronze"

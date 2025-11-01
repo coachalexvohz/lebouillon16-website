@@ -196,7 +196,7 @@ html {
 }
 
 .contact-bg {
-  background-image: url("/interieur-restaurant.png");
+  background-image: url("/contact-header-new.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -457,7 +457,7 @@ html {
 
   /* Contact page - Mobile optimized */
   .contact-bg {
-    background-image: url("/image-background-mobile-2.jpg");
+    background-image: url("/contact-header-new.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: scroll;
